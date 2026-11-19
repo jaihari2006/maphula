@@ -3,7 +3,7 @@
 [![Android](https://img.shields.io/badge/Platform-Android_8.0%2B_(API_26--36)-3DDC84?logo=android&logoColor=white)](https://developer.android.com/)
 [![Kotlin](https://img.shields.io/badge/Language-Kotlin_1.9.22-7F52FF?logo=kotlin&logoColor=white)](https://kotlinlang.org/)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
-[![Tests](https://img.shields.io/badge/Tests-34%2F34_Passing-success)](#testing--verification)
+[![Tests](https://img.shields.io/badge/Tests-36%2F36_Passing-success)](#testing--verification)
 [![Offline](https://img.shields.io/badge/Mode-100%25_Offline-brightgreen)](#project-structure)
 
 **Maphula** is a next-generation sovereign offline Android AI assistant powered by the **"Hari"** intelligence engine. It runs advanced AI reasoning, neural pattern classification, semantic knowledge retrieval, multi-modal creative synthesis, and full-featured utility suites entirely on-device without cloud dependencies. External information is synchronized strictly when internet connectivity is explicitly available.
@@ -77,7 +77,7 @@ gradle testDebugUnitTest
 ```
 
 **Results:**
-- `34/34 tests passed (0 failures, 0 errors, 0 skipped)`
+- `36/36 tests passed (0 failures, 0 errors, 0 skipped)`
 
 ---
 
