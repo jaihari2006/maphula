@@ -137,25 +137,25 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!-- Top App Bar / Header -->
+        <!-- Top App Bar / Primary Header -->
         <LinearLayout
             android:id="@+id/layoutTopHeader"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="52dp"
             android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:paddingHorizontal="10dp"
+            android:paddingHorizontal="12dp"
             android:background="@color/surface_dark">
 
             <!-- Skills Tab Button (Swiped from left edge or tapped) -->
             <LinearLayout
                 android:id="@+id/btnSkillsTab"
                 android:layout_width="wrap_content"
-                android:layout_height="34dp"
+                android:layout_height="36dp"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:background="@drawable/bg_chip"
-                android:paddingHorizontal="6dp"
+                android:paddingHorizontal="10dp"
                 android:clickable="true"
                 android:focusable="true">
 
@@ -163,219 +163,286 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="⚡"
-                    android:textSize="12sp" />
+                    android:textSize="13sp" />
 
                 <TextView
                     android:id="@+id/tvSkillsTabTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="3dp"
+                    android:layout_marginStart="4dp"
                     android:text="Skills"
                     android:textColor="@color/accent_cyan"
-                    android:textSize="10sp"
+                    android:textSize="11sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <!-- Top Left Corner: Universal Calendar Tab -->
+            <!-- App Title & Deity Aura Indicator -->
             <LinearLayout
-                android:id="@+id/layoutCalendarTab"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvAppTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Maphula"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:id="@+id/tvDeityAuraSubtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:text="• Hari"
+                    android:textColor="@color/primary"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Top Right Corner: 8-Bit Digital Clock -->
+            <LinearLayout
+                android:id="@+id/layoutClock8Bit"
                 android:layout_width="wrap_content"
-                android:layout_height="34dp"
+                android:layout_height="36dp"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:background="@drawable/bg_chip"
-                android:paddingHorizontal="6dp"
-                android:layout_marginStart="4dp"
+                android:background="@drawable/bg_clock_8bit"
+                android:paddingHorizontal="10dp"
                 android:clickable="true"
                 android:focusable="true">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="📅"
-                android:textSize="12sp" />
+                <TextView
+                    android:id="@+id/tvClock8Bit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="15D 17:05:42"
+                    android:textColor="#00FFCC"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:typeface="monospace" />
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/tvCalendarYearTab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="3dp"
-                android:text="2026"
-                android:textColor="@color/text_primary"
-                android:textSize="11sp"
-                android:textStyle="bold"
-                android:typeface="monospace" />
-        </LinearLayout>
-
-        <!-- Sacred Scriptures & Wisdom Library Tab -->
-        <LinearLayout
-            android:id="@+id/btnScripturesTab"
-            android:layout_width="wrap_content"
-            android:layout_height="34dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:background="@drawable/bg_chip"
-            android:paddingHorizontal="6dp"
-            android:layout_marginStart="4dp"
-            android:clickable="true"
-            android:focusable="true">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="📖"
-                android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="3dp"
-                android:text="Wisdom"
-                android:textColor="@color/secondary"
-                android:textSize="10sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <!-- Offline Voice Assistant Tab -->
-        <LinearLayout
-            android:id="@+id/btnVoiceAssistantTab"
-            android:layout_width="wrap_content"
-            android:layout_height="34dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:background="@drawable/bg_chip"
-            android:paddingHorizontal="6dp"
-            android:layout_marginStart="4dp"
-            android:clickable="true"
-            android:focusable="true">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="🎙️"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/tvVoiceAssistantTabTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="3dp"
-                android:text="Voice"
-                android:textColor="@color/secondary"
-                android:textSize="10sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/tvAppTitle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginStart="8dp"
-            android:text="Maphula"
-            android:textColor="@color/text_primary"
-            android:textSize="17sp"
-            android:textStyle="bold"
-            android:singleLine="true" />
-
-        <!-- UI Theme Switcher Badge -->
-        <LinearLayout
-            android:id="@+id/layoutThemeBadge"
-            android:layout_width="wrap_content"
-            android:layout_height="34dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:background="@drawable/bg_chip"
-            android:paddingHorizontal="6dp"
-            android:clickable="true"
-            android:focusable="true">
-
-            <TextView
-                android:id="@+id/tvThemeIcon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="🖤"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/tvThemeName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="3dp"
-                android:text="Matte"
-                android:textColor="@color/text_primary"
-                android:textSize="10sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <!-- Network Status Badge -->
-        <LinearLayout
-            android:id="@+id/layoutNetworkBadge"
-            android:layout_width="wrap_content"
-            android:layout_height="34dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:background="@drawable/bg_chip"
-            android:paddingHorizontal="6dp"
-            android:layout_marginStart="4dp"
-            android:clickable="true"
-            android:focusable="true">
-
-            <View
-                android:id="@+id/viewNetworkDot"
-                android:layout_width="7dp"
-                android:layout_height="7dp"
+            <!-- Settings Button -->
+            <ImageButton
+                android:id="@+id/btnSettings"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="8dp"
                 android:background="@drawable/bg_chip"
-                android:backgroundTint="@color/accent_green" />
-
-            <TextView
-                android:id="@+id/tvNetworkStatus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:text="OFFLINE"
-                android:textColor="@color/accent_green"
-                android:textSize="9sp"
-                android:textStyle="bold" />
+                android:src="@drawable/ic_settings"
+                android:padding="8dp"
+                android:scaleType="fitCenter"
+                app:tint="@color/text_primary"
+                android:contentDescription="Settings" />
         </LinearLayout>
 
-        <!-- Settings Button -->
-        <ImageButton
-            android:id="@+id/btnSettings"
-            android:layout_width="34dp"
-            android:layout_height="34dp"
-            android:layout_marginStart="4dp"
-            android:background="@drawable/bg_chip"
-            android:src="@drawable/ic_settings"
-            android:padding="7dp"
-            android:scaleType="fitCenter"
-            app:tint="@color/text_primary"
-            android:contentDescription="Settings" />
+        <!-- Engaging Quick Actions Deck (Horizontal Carousel) -->
+        <HorizontalScrollView
+            android:id="@+id/scrollQuickDeck"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:background="@color/surface_dark"
+            android:paddingVertical="5dp"
+            android:paddingHorizontal="10dp">
 
-        <!-- Top Right Corner: 8-Bit Digital Clock showing Days, Hours, Minutes, Seconds -->
-        <LinearLayout
-            android:id="@+id/layoutClock8Bit"
-            android:layout_width="wrap_content"
-            android:layout_height="34dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:background="@drawable/bg_clock_8bit"
-            android:paddingHorizontal="8dp"
-            android:layout_marginStart="6dp"
-            android:clickable="true"
-            android:focusable="true">
-
-            <TextView
-                android:id="@+id/tvClock8Bit"
+            <LinearLayout
+                android:id="@+id/layoutQuickDeck"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="15D 17:05:42"
-                android:textColor="#00FFCC"
-                android:textSize="10sp"
-                android:textStyle="bold"
-                android:typeface="monospace" />
-        </LinearLayout>
-    </LinearLayout>
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <!-- Universal Calendar Tab -->
+                <LinearLayout
+                    android:id="@+id/layoutCalendarTab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_chip"
+                    android:paddingHorizontal="10dp"
+                    android:layout_marginEnd="6dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📅"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tvCalendarYearTab"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="2026 AD"
+                        android:textColor="@color/text_primary"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:typeface="monospace" />
+                </LinearLayout>
+
+                <!-- Sacred Scriptures & Wisdom Tab -->
+                <LinearLayout
+                    android:id="@+id/btnScripturesTab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_chip"
+                    android:paddingHorizontal="10dp"
+                    android:layout_marginEnd="6dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📖"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="Wisdom"
+                        android:textColor="@color/secondary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Voice Assistant Tab -->
+                <LinearLayout
+                    android:id="@+id/btnVoiceAssistantTab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_chip"
+                    android:paddingHorizontal="10dp"
+                    android:layout_marginEnd="6dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🎙️"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tvVoiceAssistantTabTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="Voice"
+                        android:textColor="@color/secondary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Gamified Wisdom Karma & Streak Badge -->
+                <LinearLayout
+                    android:id="@+id/layoutKarmaBadge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_chip"
+                    android:paddingHorizontal="10dp"
+                    android:layout_marginEnd="6dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:id="@+id/tvKarmaBadgeIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🪷"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tvKarmaBadgePoints"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="50 Prana"
+                        android:textColor="@color/accent_gold"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- UI Theme Switcher Badge -->
+                <LinearLayout
+                    android:id="@+id/layoutThemeBadge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_chip"
+                    android:paddingHorizontal="10dp"
+                    android:layout_marginEnd="6dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:id="@+id/tvThemeIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🖤"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tvThemeName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="Matte"
+                        android:textColor="@color/text_primary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Network Status Badge -->
+                <LinearLayout
+                    android:id="@+id/layoutNetworkBadge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_chip"
+                    android:paddingHorizontal="10dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <View
+                        android:id="@+id/viewNetworkDot"
+                        android:layout_width="7dp"
+                        android:layout_height="7dp"
+                        android:background="@drawable/bg_chip"
+                        android:backgroundTint="@color/accent_green" />
+
+                    <TextView
+                        android:id="@+id/tvNetworkStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="OFFLINE"
+                        android:textColor="@color/accent_green"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </HorizontalScrollView>
 
     <!-- Main Fragment Container -->
     <FrameLayout

@@ -171,6 +171,18 @@ class NeuralLabFragment : Fragment() {
                 binding.neuralView.invalidate()
                 runLiveInference()
 
+                val mainAct = activity as? com.offlineai.app.MainActivity
+                if (finalLoss < 0.1) {
+                    mainAct?.soundEngine?.playLevelUp()
+                } else {
+                    mainAct?.soundEngine?.playButteryClick()
+                }
+                val res = mainAct?.karmaEngine?.awardPrana(25, "Trained Neural Network")
+                if (res != null) {
+                    mainAct.updateKarmaBadgeUI()
+                    android.widget.Toast.makeText(requireContext(), "🧠 Neural Training Complete! +25 Prana (${res.totalPoints} total)", android.widget.Toast.LENGTH_SHORT).show()
+                }
+
                 binding.btnTrain.isEnabled = true
                 binding.btnTrain.text = "▶ Train 50 Epochs"
             }

@@ -196,6 +196,14 @@ class CreativeStudioFragment : Fragment() {
                 binding.ivGeneratedImage.setImageBitmap(bitmap)
                 binding.ivGeneratedImage.animateSpringBounce(260L)
                 binding.tvImageDetails.text = "384 × 384 • Procedural Latent Diffusion • Style: ${selectedStyle.label}"
+
+                val mainAct = activity as? MainActivity
+                mainAct?.soundEngine?.playTempleBell()
+                val res = mainAct?.karmaEngine?.awardPrana(20, "Procedural Visual Synthesis")
+                if (res != null) {
+                    mainAct.updateKarmaBadgeUI()
+                    Toast.makeText(requireContext(), "🎨 Artwork Synthesized! +20 Prana (${res.totalPoints} total)", Toast.LENGTH_SHORT).show()
+                }
             }
         }
 

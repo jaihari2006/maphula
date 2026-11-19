@@ -84,6 +84,20 @@ enum class Persona(
         tagColorHex = "#B45309"
     );
 
+    val icon: String
+        get() = when (this) {
+            KRISHNA -> "🦚"
+            SHIVA -> "🔱"
+            BRAHMA -> "🪷"
+            SHANI -> "⚖️"
+            GANESHA -> "🐘"
+            MURUGA -> "⚡"
+            HANUMAN -> "🛡️"
+            LAKSHMI -> "🌸"
+            PARVATHI -> "🏔️"
+            NARASIMHA -> "🦁"
+        }
+
     companion object {
         // Aliases for seamless backward compatibility
         val HARI get() = KRISHNA

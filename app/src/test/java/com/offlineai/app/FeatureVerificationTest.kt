@@ -1084,4 +1084,32 @@ class FeatureVerificationTest {
         val sanskritWisdom = translator.translatePhrase("wisdom", com.offlineai.app.engine.AppLanguage.SANSKRIT)
         assertTrue("Sanskrit translation should contain Prajna", sanskritWisdom.contains("प्रज्ञा"))
     }
+
+    // ==========================================
+    // 22. ENGAGING WISDOM KARMA & ORACLE ENGINE
+    // ==========================================
+
+    @Test
+    fun testWisdomKarmaRankProgression() {
+        assertEquals(com.offlineai.app.engine.WisdomRank.SEEKER, com.offlineai.app.engine.WisdomRank.fromPoints(0))
+        assertEquals(com.offlineai.app.engine.WisdomRank.SEEKER, com.offlineai.app.engine.WisdomRank.fromPoints(100))
+        assertEquals(com.offlineai.app.engine.WisdomRank.SADHAK, com.offlineai.app.engine.WisdomRank.fromPoints(101))
+        assertEquals(com.offlineai.app.engine.WisdomRank.SADHAK, com.offlineai.app.engine.WisdomRank.fromPoints(300))
+        assertEquals(com.offlineai.app.engine.WisdomRank.YOGI, com.offlineai.app.engine.WisdomRank.fromPoints(301))
+        assertEquals(com.offlineai.app.engine.WisdomRank.RISHI, com.offlineai.app.engine.WisdomRank.fromPoints(601))
+        assertEquals(com.offlineai.app.engine.WisdomRank.PARAMAHAMSA, com.offlineai.app.engine.WisdomRank.fromPoints(1001))
+    }
+
+    @Test
+    fun testOracleWisdomLibraryIntegrity() {
+        val library = com.offlineai.app.engine.WisdomKarmaEngine.ORACLE_LIBRARY
+        assertEquals(10, library.size)
+        library.forEach { oracle ->
+            assertTrue("Topic must not be blank", oracle.topic.isNotBlank())
+            assertTrue("Prompt must not be blank", oracle.prompt.isNotBlank())
+            assertTrue("Key wisdom must not be blank", oracle.keyWisdom.isNotBlank())
+            assertTrue("Citation must not be blank", oracle.citation.isNotBlank())
+            assertNotNull("Associated deity must not be null", oracle.deity)
+        }
+    }
 }

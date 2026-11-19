@@ -114,6 +114,38 @@ class SoundSynthesisEngine {
         }
     }
 
+    /**
+     * Resonant Temple Bell / Ghanta chime with metallic harmonics and shimmering decay.
+     */
+    fun playTempleBell(baseFreq: Double = 1175.0, durationMs: Long = 1800) {
+        if (!isSoundFeedbackEnabled) return
+        scope.launch {
+            try {
+                val numSamples = (sampleRate * durationMs / 1000).toInt()
+                val buffer = ShortArray(numSamples)
+                for (i in 0 until numSamples) {
+                    val t = i.toDouble() / sampleRate
+                    val env = exp(-t * 3.8)
+                    val s1 = sin(2.0 * PI * baseFreq * t)
+                    val s2 = 0.6 * sin(2.0 * PI * (baseFreq * 2.76) * t) * exp(-t * 5.0)
+                    val s3 = 0.35 * sin(2.0 * PI * (baseFreq * 5.4) * t) * exp(-t * 8.0)
+                    val s0 = 0.5 * sin(2.0 * PI * (baseFreq * 0.5) * t) * exp(-t * 2.5) // strike tone
+                    val mixed = (s1 + s2 + s3 + s0) / 2.45 * env
+                    buffer[i] = (mixed * Short.MAX_VALUE * 0.5).toInt().coerceIn(Short.MIN_VALUE.toInt(), Short.MAX_VALUE.toInt()).toShort()
+                }
+                playBuffer(buffer)
+            } catch (_: Exception) {}
+        }
+    }
+
+    /**
+     * Ascending 4-note victory / level-up arpeggio (C5 -> E5 -> G5 -> C6).
+     */
+    fun playLevelUp() {
+        if (!isSoundFeedbackEnabled) return
+        playChantCadence(listOf(523.25, 659.25, 783.99, 1046.50), noteDurationMs = 150)
+    }
+
     fun stopAudio() {
         activePlaybackJob?.cancel()
     }

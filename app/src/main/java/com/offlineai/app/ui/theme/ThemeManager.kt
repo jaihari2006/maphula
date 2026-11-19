@@ -763,6 +763,8 @@ object ThemeManager {
         // Top Header
         binding.layoutTopHeader.background = surfaceBackground(context, theme)
         binding.tvAppTitle.setTextColor(theme.textPrimary)
+        binding.tvDeityAuraSubtitle.setTextColor(theme.accentColor)
+        binding.scrollQuickDeck.background = surfaceBackground(context, theme)
 
         // Calendar Tab (Top Left Corner)
         binding.layoutCalendarTab.background = chipBackground(context, theme)
@@ -774,6 +776,9 @@ object ThemeManager {
         binding.btnSkillsTab.background = chipBackground(context, theme)
         binding.tvSkillsTabTitle.setTextColor(theme.accentColor)
         binding.navSkillsDrawer.background = surfaceBackground(context, theme)
+
+        // Karma & Streak Badge
+        binding.layoutKarmaBadge.background = chipBackground(context, theme)
 
         // Theme Switcher Badge
         binding.layoutThemeBadge.background = chipBackground(context, theme)

@@ -72,20 +72,6 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
-val Persona.icon: String
-    get() = when (this) {
-        Persona.KRISHNA -> "🦚"
-        Persona.SHIVA -> "🔱"
-        Persona.BRAHMA -> "🪷"
-        Persona.SHANI -> "⚖️"
-        Persona.GANESHA -> "🐘"
-        Persona.MURUGA -> "⚡"
-        Persona.HANUMAN -> "🛡️"
-        Persona.LAKSHMI -> "🌸"
-        Persona.PARVATHI -> "🏔️"
-        Persona.NARASIMHA -> "🦁"
-    }
-
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -106,6 +92,7 @@ class MainActivity : AppCompatActivity() {
     val scriptureEngine by lazy { ScriptureLibraryEngine() }
     val ravanaEngine by lazy { RavanaSkillEngine() }
     val translationEngine by lazy { MultiLanguageTranslationEngine() }
+    val karmaEngine by lazy { com.offlineai.app.engine.WisdomKarmaEngine(this) }
     var currentAppLanguage: AppLanguage = AppLanguage.ENGLISH
         private set
 
@@ -142,6 +129,7 @@ class MainActivity : AppCompatActivity() {
         setupCalendarTab()
         setupScripturesTab()
         setupVoiceAssistantTab()
+        setupKarmaBadge()
         setup8BitClock()
         setupDynamicIsland()
         setupThemeBadge()
@@ -1106,6 +1094,73 @@ class MainActivity : AppCompatActivity() {
 
         btnClose.setOnClickListener {
             dialog.dismiss()
+        }
+
+        dialog.show()
+    }
+
+    private fun setupKarmaBadge() {
+        updateKarmaBadgeUI()
+        binding.layoutKarmaBadge.applyButteryPress()
+        binding.layoutKarmaBadge.setOnClickListener {
+            soundEngine.playButteryClick()
+            binding.layoutKarmaBadge.animateSpringBounce()
+            showWisdomKarmaModal()
+        }
+    }
+
+    fun updateKarmaBadgeUI() {
+        val rank = karmaEngine.getCurrentRank()
+        val pts = karmaEngine.getPranaPoints()
+        binding.tvKarmaBadgeIcon.text = rank.badge
+        binding.tvKarmaBadgePoints.text = "$pts Prana"
+    }
+
+    fun showWisdomKarmaModal() {
+        val dialog = BottomSheetDialog(this)
+        ThemeManager.setupSmoothBottomSheet(dialog)
+        val view = layoutInflater.inflate(R.layout.dialog_wisdom_karma, null)
+        dialog.setContentView(view)
+
+        val tvStreak = view.findViewById<TextView>(R.id.tvKarmaModalStreak)
+        val tvRankBadge = view.findViewById<TextView>(R.id.tvRankBadgeIcon)
+        val tvRankTitle = view.findViewById<TextView>(R.id.tvRankTitle)
+        val tvRankPoints = view.findViewById<TextView>(R.id.tvRankPoints)
+        val tvRankPercent = view.findViewById<TextView>(R.id.tvRankPercent)
+        val progressRank = view.findViewById<ProgressBar>(R.id.progressRank)
+        val btnBell = view.findViewById<Button>(R.id.btnRingTempleBell)
+
+        val points = karmaEngine.getPranaPoints()
+        val streak = karmaEngine.getStreak()
+        val rank = karmaEngine.getCurrentRank()
+
+        tvStreak?.text = "🔥 $streak ${if (streak == 1) "Day" else "Days"}"
+        tvRankBadge?.text = rank.badge
+        tvRankTitle?.text = "${rank.title} (${rank.sanskritTitle})"
+
+        val nextRankMin = when (rank) {
+            com.offlineai.app.engine.WisdomRank.SEEKER -> 101
+            com.offlineai.app.engine.WisdomRank.SADHAK -> 301
+            com.offlineai.app.engine.WisdomRank.YOGI -> 601
+            com.offlineai.app.engine.WisdomRank.RISHI -> 1001
+            com.offlineai.app.engine.WisdomRank.PARAMAHAMSA -> 2000
+        }
+        val currentRange = (points - rank.minPoints).coerceAtLeast(0)
+        val totalRange = (nextRankMin - rank.minPoints).coerceAtLeast(1)
+        val percent = ((currentRange.toDouble() / totalRange) * 100).toInt().coerceIn(0, 100)
+
+        tvRankPoints?.text = "$points / $nextRankMin Prana Points"
+        tvRankPercent?.text = "$percent%"
+        progressRank?.progress = percent
+
+        btnBell?.applyButteryPress()
+        btnBell?.setOnClickListener {
+            btnBell.animateSpringBounce()
+            soundEngine.playTempleBell()
+            val res = karmaEngine.awardPrana(5, "Temple Bell Auspicious Ring")
+            updateKarmaBadgeUI()
+            Toast.makeText(this, "🔔 Temple Bell Sound Ringing • +5 Auspicious Prana (${res.totalPoints} total)!", Toast.LENGTH_SHORT).show()
+            tvRankPoints?.text = "${res.totalPoints} / $nextRankMin Prana Points"
         }
 
         dialog.show()

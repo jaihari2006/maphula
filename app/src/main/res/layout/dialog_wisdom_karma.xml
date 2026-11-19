@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_bottom_sheet_ios"
+    android:padding="20dp">
+
+    <!-- Top drag handle -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_ios_home_indicator" />
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="14dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🪷"
+            android:textSize="24sp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wisdom &amp; Sadhana Karma"
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gamified Sovereign Intelligence Journey"
+                android:textColor="@color/accent_cyan"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Streak Pill -->
+        <TextView
+            android:id="@+id/tvKarmaModalStreak"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_chip"
+            android:backgroundTint="#2D1B4E"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp"
+            android:text="🔥 1 Day"
+            android:textColor="#F59E0B"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Rank Card -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardRank"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/surface_dark"
+        app:cardCornerRadius="18dp"
+        app:cardElevation="2dp"
+        app:strokeColor="@color/card_stroke"
+        app:strokeWidth="1dp"
+        android:layout_marginBottom="14dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvRankBadgeIcon"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:gravity="center"
+                    android:background="@drawable/bg_chip"
+                    android:backgroundTint="#312E81"
+                    android:text="🌱"
+                    android:textSize="24sp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvRankTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Seeker (Jijnasu)"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvRankPoints"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="50 / 100 Prana Points"
+                        android:textColor="@color/accent_gold"
+                        android:textSize="12sp"
+                        android:fontFamily="monospace" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvRankPercent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="50%"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/progressRank"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:layout_marginTop="12dp"
+                android:max="100"
+                android:progress="50"
+                android:progressTint="@color/primary" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Quests / Action Pathways -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DAILY SADHANA PATHWAYS"
+        android:textColor="@color/text_muted"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bg_card"
+        android:padding="12dp"
+        android:layout_marginBottom="14dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="💬 Consult Deity AI Personas • +10 Prana"
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"
+            android:paddingVertical="4dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📜 Read Sacred Gita / Upanishad Verses • +15 Prana"
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"
+            android:paddingVertical="4dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🎨 Synthesize Art or Voice Profile • +20 Prana"
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"
+            android:paddingVertical="4dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🧠 Train Neural MLP Classifier • +25 Prana"
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"
+            android:paddingVertical="4dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="⚔️ Challenge Ideas in Ravana Arena • +30 Prana"
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"
+            android:paddingVertical="4dp" />
+    </LinearLayout>
+
+    <!-- Action Button: Sacred Temple Bell Blessing -->
+    <Button
+        android:id="@+id/btnRingTempleBell"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="🔔 Ring Temple Bell for Auspicious Blessing"
+        android:textColor="@color/text_primary"
+        android:textStyle="bold"
+        android:backgroundTint="@color/primary"
+        app:cornerRadius="14dp" />
+</LinearLayout>

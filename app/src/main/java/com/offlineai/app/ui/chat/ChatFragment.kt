@@ -74,6 +74,7 @@ class ChatFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
         setupPersonaSelector()
+        setupDailyDarshanAndOracle()
         setupQuickPrompts()
         setupInput()
 
@@ -147,6 +148,11 @@ class ChatFragment : Fragment() {
         binding.tvWelcomeSubtitle.setTextColor(theme.textMuted)
         binding.tvWelcomePromptHint.setTextColor(theme.accentColor)
 
+        binding.cardDailyDarshan.setCardBackgroundColor(theme.surfaceColor)
+        binding.cardDailyDarshan.strokeColor = theme.cardStrokeColor
+        binding.tvDarshanTitle.setTextColor(theme.textPrimary)
+        binding.tvDarshanPrecept.setTextColor(theme.textSecondary)
+
         if (::adapter.isInitialized) {
             adapter.notifyDataSetChanged()
         }
@@ -209,7 +215,56 @@ class ChatFragment : Fragment() {
                 R.id.chipShani -> Persona.SHANI
                 else -> Persona.KRISHNA
             }
+            val mainAct = activity as? MainActivity
+            mainAct?.soundEngine?.playButteryClick()
+            mainAct?.updateDynamicIsland("Contemplating as ${currentPersona.displayName}", currentPersona.icon)
+            updateDailyDarshanForPersona(currentPersona)
         }
+    }
+
+    private fun setupDailyDarshanAndOracle() {
+        binding.cardDailyDarshan.applyButteryPress()
+        binding.btnSpinOracle.applyButteryPress()
+
+        val mainAct = activity as? MainActivity
+        val darshan = mainAct?.karmaEngine?.getDailyDarshan()
+        if (darshan != null) {
+            binding.tvDarshanDeityIcon.text = darshan.deity.icon
+            binding.tvDarshanTitle.text = "Daily Darshan • ${darshan.deity.displayName}"
+            binding.tvDarshanVerse.text = darshan.sanskritVerse
+            binding.tvDarshanPrecept.text = darshan.precept
+        }
+
+        binding.cardDailyDarshan.setOnClickListener {
+            binding.cardDailyDarshan.animateSpringBounce()
+            mainAct?.soundEngine?.playButteryClick()
+            mainAct?.showWisdomKarmaModal()
+        }
+
+        binding.btnSpinOracle.setOnClickListener {
+            binding.btnSpinOracle.animateSpringBounce()
+            val oracle = mainAct?.karmaEngine?.getRandomOracleWisdom()
+            if (oracle != null) {
+                mainAct.soundEngine.playTempleBell()
+                binding.tvDarshanDeityIcon.text = oracle.deity.icon
+                binding.tvDarshanTitle.text = "Oracle • ${oracle.topic} (${oracle.citation})"
+                binding.tvDarshanVerse.text = "\"${oracle.prompt}\""
+                binding.tvDarshanPrecept.text = oracle.keyWisdom
+
+                val result = mainAct.karmaEngine.awardPrana(10, "Spun Divine Oracle")
+                mainAct.updateKarmaBadgeUI()
+                android.widget.Toast.makeText(requireContext(), "🎲 Divine Oracle Spun! +10 Prana (${result.totalPoints} total)", android.widget.Toast.LENGTH_SHORT).show()
+
+                binding.etMessage.setText(oracle.prompt)
+                binding.etMessage.setSelection(oracle.prompt.length)
+            }
+        }
+    }
+
+    private fun updateDailyDarshanForPersona(persona: Persona) {
+        binding.tvDarshanDeityIcon.text = persona.icon
+        binding.tvDarshanTitle.text = "${persona.displayName} Guidance • ${persona.title}"
+        binding.tvDarshanPrecept.text = persona.description
     }
 
     private fun setupQuickPrompts() {
@@ -725,6 +780,7 @@ class ChatFragment : Fragment() {
         messages.clear()
         clearPendingAttachment()
         updateEmptyWelcomeState()
+
         if (::adapter.isInitialized) {
             adapter.notifyDataSetChanged()
         }
@@ -768,10 +824,20 @@ class ChatFragment : Fragment() {
 
         val chatEngine = (activity as? MainActivity)?.chatEngine ?: return
 
+        val mainAct = activity as? MainActivity
+        if (mainAct != null) {
+            val result = mainAct.karmaEngine.awardPrana(10, "Consulted ${currentPersona.displayName}")
+            mainAct.updateKarmaBadgeUI()
+            if (result.didRankUp) {
+                mainAct.soundEngine.playLevelUp()
+                android.widget.Toast.makeText(requireContext(), "🎉 Sadhana Rank Up! You are now a ${result.newRank.title} (${result.newRank.sanskritTitle})!", android.widget.Toast.LENGTH_LONG).show()
+            }
+        }
+
         streamingJob?.cancel()
         streamingJob = viewLifecycleOwner.lifecycleScope.launch {
             binding.btnSend.startBreathingPulse()
-            (activity as? MainActivity)?.updateDynamicIsland("Reasoning...", "✨")
+            mainAct?.updateDynamicIsland("Contemplating...", currentPersona.icon)
             var lastScrollTime = 0L
             try {
                 chatEngine.generateStreamingResponse(prompt, currentPersona, attachedFile).collect { partialText ->
