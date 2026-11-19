@@ -10,6 +10,18 @@
 
 ---
 
+## 📱 App Screenshots
+
+<p align="center">
+  <img src="docs/screenshots/01_chat_hari.png" width="31%" alt="Hari AI Deity Chat & 8-Bit Clock" />
+  &nbsp;
+  <img src="docs/screenshots/02_creative_studio.png" width="31%" alt="Creative Studio & Voice Duplication" />
+  &nbsp;
+  <img src="docs/screenshots/03_universal_calendar.png" width="31%" alt="Universal Calendar 1-9999 AD & Analog Clock" />
+</p>
+
+---
+
 ## 🚀 Quick Download & Installation
 
 The compiled debug APK is ready to install:
