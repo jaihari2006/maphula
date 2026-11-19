@@ -77,7 +77,8 @@ Choose from ten distinct on-device persona models, each fine-tuned with unique p
 
 The compiled debug APK is ready to install:
 
-👉 **[Download maphula.apk](maphula.apk)** *(~8.1 MB)*
+👉 **[Download maphula.apk (GitHub Release v1.0.0)](https://github.com/jaihari2006/maphula/releases/download/v1.0.0/maphula.apk)** *(~8.1 MB)*
+👉 **[Direct Repository File](maphula.apk)**
 
 ```bash
 # Install via ADB:
