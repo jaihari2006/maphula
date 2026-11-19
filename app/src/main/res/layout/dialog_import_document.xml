@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/surface_dark"
+    android:padding="20dp">
+
+    <!-- Drag Handle -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_chip"
+        android:backgroundTint="@color/text_muted" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="📥 Ingest Note into Personal RAG"
+        android:textColor="@color/text_primary"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Add personal research, meeting notes, or offline references. Maphula tokenizes, indexes, and builds vector embeddings locally."
+        android:textColor="@color/text_secondary"
+        android:textSize="12sp"
+        android:lineSpacingExtra="2dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#22FFFFFF"
+        android:layout_marginVertical="12dp" />
+
+    <!-- Document Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NOTE / DOCUMENT TITLE:"
+        android:textColor="@color/text_secondary"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp" />
+
+    <EditText
+        android:id="@+id/etDocTitle"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:hint="e.g. Offline Architecture Principles"
+        android:textColorHint="#64748B"
+        android:textColor="@color/text_primary"
+        android:textSize="13sp"
+        android:background="@drawable/bg_input_field"
+        android:paddingHorizontal="12dp"
+        android:layout_marginBottom="10dp" />
+
+    <!-- Category & Tags Row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginEnd="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CATEGORY:"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp" />
+
+            <EditText
+                android:id="@+id/etDocCategory"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:hint="Personal Notes"
+                android:text="Personal Notes"
+                android:textColorHint="#64748B"
+                android:textColor="@color/text_primary"
+                android:textSize="13sp"
+                android:background="@drawable/bg_input_field"
+                android:paddingHorizontal="12dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TAGS (COMMA-SEPARATED):"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp" />
+
+            <EditText
+                android:id="@+id/etDocTags"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:hint="rag, offline, memory"
+                android:textColorHint="#64748B"
+                android:textColor="@color/text_primary"
+                android:textSize="13sp"
+                android:background="@drawable/bg_input_field"
+                android:paddingHorizontal="12dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Document Content -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DOCUMENT CONTENT / BODY:"
+        android:textColor="@color/text_secondary"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp" />
+
+    <EditText
+        android:id="@+id/etDocContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minLines="5"
+        android:maxLines="10"
+        android:gravity="top|start"
+        android:hint="Type or paste markdown, code patterns, research summaries, or reference procedures here..."
+        android:textColorHint="#64748B"
+        android:textColor="@color/text_primary"
+        android:textSize="13sp"
+        android:background="@drawable/bg_input_field"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Ingest Button -->
+    <Button
+        android:id="@+id/btnConfirmIngest"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:text="💾 Ingest &amp; Index into Vector Database"
+        android:textColor="#FFFFFF"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:background="@drawable/bg_button_gradient" />
+
+</LinearLayout>

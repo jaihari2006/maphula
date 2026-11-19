@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="On-Device Neural Lab"
+            android:textColor="@color/text_primary"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Real-time Multi-Layer Perceptron with Gradient Descent &amp; Backpropagation"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp" />
+
+        <!-- Model Selection Chips -->
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupModels"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:singleSelection="true"
+            app:selectionRequired="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipXor"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="XOR Gate (2-4-1)"
+                android:checked="true"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_variant_dark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipPattern"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pattern Classifier (9-6-2)"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_variant_dark" />
+
+        </com.google.android.material.chip.ChipGroup>
+
+        <!-- Neural Architecture Visualizer Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:layout_marginTop="12dp"
+            app:cardBackgroundColor="@color/surface_dark"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="2dp">
+
+            <com.offlineai.app.ui.neural.NeuralVisualizerView
+                android:id="@+id/neuralView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Training Control Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:cardBackgroundColor="@color/surface_dark"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Epochs Trained"
+                            android:textColor="@color/text_muted"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:id="@+id/tvEpochs"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textColor="@color/secondary"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mean Squared Error"
+                            android:textColor="@color/text_muted"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:id="@+id/tvLoss"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0.5000"
+                            android:textColor="@color/accent_amber"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Training Buttons -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnTrain"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="▶ Train 50 Epochs"
+                        android:textColor="@color/on_primary"
+                        android:textSize="13sp"
+                        app:backgroundTint="@color/primary"
+                        app:cornerRadius="8dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnReset"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:text="Reset"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp"
+                        app:strokeColor="@color/card_stroke"
+                        app:cornerRadius="8dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Live Inference Console Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="24dp"
+            app:cardBackgroundColor="@color/surface_dark"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Live Inference Console"
+                    android:textColor="@color/secondary"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <!-- XOR Controls -->
+                <LinearLayout
+                    android:id="@+id/layoutXorControls"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <com.google.android.material.switchmaterial.SwitchMaterial
+                            android:id="@+id/switchInputA"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Input A: 0"
+                            android:textColor="@color/text_primary" />
+
+                        <com.google.android.material.switchmaterial.SwitchMaterial
+                            android:id="@+id/switchInputB"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Input B: 0"
+                            android:textColor="@color/text_primary" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvPredictionXor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/bg_chip"
+                        android:padding="10dp"
+                        android:text="Predicted Output: 0.00 (Class: 0)"
+                        android:textColor="@color/accent_green"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Pattern 3x3 Grid Controls -->
+                <LinearLayout
+                    android:id="@+id/layoutPatternControls"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Toggle 3x3 Grid Pixels (Click cells to draw Plus '+' or Cross 'X'):"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+
+                    <!-- 3x3 Grid Buttons -->
+                    <GridLayout
+                        android:id="@+id/gridPattern"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:columnCount="3"
+                        android:rowCount="3"
+                        android:layout_marginTop="8dp">
+
+                        <!-- 9 toggle cells -->
+                        <Button android:id="@+id/cell0" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="54dp" android:layout_height="54dp" android:text="0" android:textSize="12sp" app:strokeColor="@color/card_stroke" />
+                        <Button android:id="@+id/cell1" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="54dp" android:layout_height="54dp" android:text="1" android:textSize="12sp" app:strokeColor="@color/card_stroke" />
+                        <Button android:id="@+id/cell2" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="54dp" android:layout_height="54dp" android:text="0" android:textSize="12sp" app:strokeColor="@color/card_stroke" />
+                        <Button android:id="@+id/cell3" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="54dp" android:layout_height="54dp" android:text="1" android:textSize="12sp" app:strokeColor="@color/card_stroke" />
+                        <Button android:id="@+id/cell4" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="54dp" android:layout_height="54dp" android:text="1" android:textSize="12sp" app:strokeColor="@color/card_stroke" />
+                        <Button android:id="@+id/cell5" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="54dp" android:layout_height="54dp" android:text="1" android:textSize="12sp" app:strokeColor="@color/card_stroke" />
+                        <Button android:id="@+id/cell6" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="54dp" android:layout_height="54dp" android:text="0" android:textSize="12sp" app:strokeColor="@color/card_stroke" />
+                        <Button android:id="@+id/cell7" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="54dp" android:layout_height="54dp" android:text="1" android:textSize="12sp" app:strokeColor="@color/card_stroke" />
+                        <Button android:id="@+id/cell8" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="54dp" android:layout_height="54dp" android:text="0" android:textSize="12sp" app:strokeColor="@color/card_stroke" />
+                    </GridLayout>
+
+                    <TextView
+                        android:id="@+id/tvPredictionPattern"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_chip"
+                        android:padding="10dp"
+                        android:text="Predicted Shape: Plus (+) (Confidence: 94%)"
+                        android:textColor="@color/secondary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</ScrollView>

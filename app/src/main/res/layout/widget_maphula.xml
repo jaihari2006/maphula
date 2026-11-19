@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widgetRootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_widget_dark"
+    android:padding="10dp">
+
+    <!-- Header: Clickable area to open Mapula app -->
+    <LinearLayout
+        android:id="@+id/layoutWidgetHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tvWidgetTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🤖 MAPULA AI"
+            android:textColor="#38BDF8"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvWidgetChrono"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:text="⚡ 100% OFFLINE"
+            android:textColor="#10B981"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Divider Line -->
+    <ImageView
+        android:id="@+id/ivWidgetDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#22FFFFFF"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:contentDescription="@null" />
+
+    <!-- Daily Prompt & Inspiration Card (Tappable to prefill in Chat) -->
+    <LinearLayout
+        android:id="@+id/layoutWidgetPromptCard"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:background="@drawable/bg_widget_prompt_card"
+        android:padding="7dp">
+
+        <TextView
+            android:id="@+id/tvWidgetCelebration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="✨ CHAT • Sovereign Mind Day"
+            android:textColor="#10B981"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <TextView
+            android:id="@+id/tvWidgetScriptureOriginal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="💡 Quick Prompt Idea: Explain Complex Concepts"
+            android:textColor="#E2E8F0"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <TextView
+            android:id="@+id/tvWidgetScriptureEnglish"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="&quot;Explain quantum computing and superposition like I am 10 years old.&quot;"
+            android:textColor="#94A3B8"
+            android:textSize="10sp"
+            android:maxLines="2"
+            android:ellipsize="end" />
+    </LinearLayout>
+
+    <!-- Quick Action Bar -->
+    <LinearLayout
+        android:id="@+id/layoutWidgetActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:id="@+id/btnWidgetAskAi"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/bg_widget_btn"
+            android:text="💬 Chat"
+            android:textColor="#38BDF8"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/btnWidgetVoice"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_marginStart="4dp"
+            android:background="@drawable/bg_widget_btn"
+            android:text="🎙️ Voice"
+            android:textColor="#A855F7"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/btnWidgetCreative"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_marginStart="4dp"
+            android:background="@drawable/bg_widget_btn"
+            android:text="🎨 Studio"
+            android:textColor="#EC4899"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/btnWidgetNextWisdom"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_marginStart="4dp"
+            android:background="@drawable/bg_widget_btn"
+            android:text="🔄 Next"
+            android:textColor="#10B981"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

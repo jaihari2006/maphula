@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_ios_card"
+    android:padding="16dp">
+
+    <!-- Modal Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="12dp">
+
+        <TextView
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:background="@drawable/bg_chip"
+            android:gravity="center"
+            android:text="🎮"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvGameTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⚡ Neon Snake Arcade"
+                android:textColor="@color/text_primary"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Live On-Device HTML5 Game Runtime"
+                android:textColor="@color/accent_green"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btnReloadGame"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginEnd="6dp"
+            android:background="@drawable/bg_chip"
+            android:src="@drawable/ic_refresh"
+            android:padding="8dp"
+            android:scaleType="fitCenter"
+            app:tint="@color/text_primary"
+            android:contentDescription="Restart Game" />
+
+        <ImageButton
+            android:id="@+id/btnCloseGame"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:background="@drawable/bg_chip"
+            android:src="@drawable/ic_close"
+            android:padding="8dp"
+            android:scaleType="fitCenter"
+            app:tint="@color/text_primary"
+            android:contentDescription="Close Game" />
+    </LinearLayout>
+
+    <!-- WebView Container for Game Execution -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="6dp"
+        app:cardBackgroundColor="#070B14">
+
+        <WebView
+            android:id="@+id/wvGameCanvas"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Virtual D-Pad / Touch Controls Bar for touchscreens -->
+    <LinearLayout
+        android:id="@+id/layoutGameControls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="12dp">
+
+        <!-- D-Pad Up Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGameUp"
+            android:layout_width="60dp"
+            android:layout_height="48dp"
+            android:text="▲"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            app:cornerRadius="12dp"
+            app:backgroundTint="@color/ios_blue" />
+
+        <!-- D-Pad Left, Center, Right -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginVertical="4dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGameLeft"
+                android:layout_width="60dp"
+                android:layout_height="48dp"
+                android:text="◀"
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"
+                app:cornerRadius="12dp"
+                app:backgroundTint="@color/ios_blue" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="1dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGameRight"
+                android:layout_width="60dp"
+                android:layout_height="48dp"
+                android:text="▶"
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"
+                app:cornerRadius="12dp"
+                app:backgroundTint="@color/ios_blue" />
+        </LinearLayout>
+
+        <!-- D-Pad Down Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGameDown"
+            android:layout_width="60dp"
+            android:layout_height="48dp"
+            android:text="▼"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            app:cornerRadius="12dp"
+            app:backgroundTint="@color/ios_blue" />
+    </LinearLayout>
+
+</LinearLayout>

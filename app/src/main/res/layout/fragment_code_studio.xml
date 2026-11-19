@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_dark">
+
+    <!-- Top Header Bar (Claude Code / Codex Terminal Header) -->
+    <LinearLayout
+        android:id="@+id/layoutCodeHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="10dp"
+        android:background="@color/surface_dark">
+
+        <!-- Terminal Badge Indicator -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_chip"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="💻"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvCodeTitleBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="CLAUDE CODE"
+                android:textColor="@color/secondary"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <!-- Run Code Button (Play) -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRunCode"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="Run ▶"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:textColor="#070B14"
+            app:backgroundTint="@color/accent_green"
+            app:cornerRadius="10dp"
+            android:paddingHorizontal="14dp"
+            android:layout_marginEnd="6dp" />
+
+        <!-- Clear / Reset Button -->
+        <ImageButton
+            android:id="@+id/btnResetCode"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/bg_ios_circle_button"
+            android:src="@drawable/ic_refresh"
+            app:tint="@color/text_primary"
+            android:padding="8dp"
+            android:scaleType="fitCenter"
+            android:contentDescription="Reset Template" />
+    </LinearLayout>
+
+    <!-- Language Selector Horizontal Scroll -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:paddingVertical="6dp"
+        android:paddingHorizontal="12dp"
+        android:background="@color/surface_variant_dark">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupLanguages"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:singleSelection="true"
+            app:selectionRequired="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipJs"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⚡ JavaScript"
+                android:checked="true"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_dark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipPython"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🐍 Python"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_dark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipHtml"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🌐 HTML / Web"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_dark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipKotlin"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🟣 Kotlin"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_dark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipSql"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🗄️ SQL"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_dark" />
+        </com.google.android.material.chip.ChipGroup>
+    </HorizontalScrollView>
+
+    <!-- Agent Mode Selector Bar (Coder, Debugger, Refactor, Tests, Explain) -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:paddingVertical="4dp"
+        android:paddingHorizontal="12dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/modeCoder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🤖 Coder"
+                android:background="@drawable/bg_chip"
+                android:textColor="@color/secondary"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp"
+                android:layout_marginEnd="6dp" />
+
+            <TextView
+                android:id="@+id/modeDebugger"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🐛 Debug"
+                android:background="@drawable/bg_chip"
+                android:textColor="@color/accent_rose"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp"
+                android:layout_marginEnd="6dp" />
+
+            <TextView
+                android:id="@+id/modeRefactor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⚡ Refactor"
+                android:background="@drawable/bg_chip"
+                android:textColor="@color/primary"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp"
+                android:layout_marginEnd="6dp" />
+
+            <TextView
+                android:id="@+id/modeTests"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🧪 Unit Tests"
+                android:background="@drawable/bg_chip"
+                android:textColor="@color/accent_green"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp"
+                android:layout_marginEnd="6dp" />
+
+            <TextView
+                android:id="@+id/modeExplain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="💡 Explain"
+                android:background="@drawable/bg_chip"
+                android:textColor="@color/text_primary"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Main Content Area: Split Editor & Console / WebView Preview -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingHorizontal="10dp"
+        android:paddingTop="6dp">
+
+        <!-- Code Editor Surface (Monospace, dark background, line gutter) -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_code_terminal">
+
+            <!-- File tab info label -->
+            <TextView
+                android:id="@+id/tvCurrentFileName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="script.js"
+                android:textColor="@color/text_muted"
+                android:textSize="10sp"
+                android:fontFamily="monospace"
+                android:layout_gravity="top|end"
+                android:padding="8dp" />
+
+            <EditText
+                android:id="@+id/etCodeEditor"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="top|start"
+                android:background="@null"
+                android:padding="12dp"
+                android:textColor="#E6EDF3"
+                android:textColorHint="#484F58"
+                android:fontFamily="monospace"
+                android:textSize="12sp"
+                android:inputType="textMultiLine|textNoSuggestions"
+                android:scrollbars="vertical"
+                android:hint="// Write or ask Claude Code to generate code here..." />
+        </FrameLayout>
+
+        <!-- Live Terminal Output Console / Web Canvas Container -->
+        <FrameLayout
+            android:id="@+id/frameOutputContainer"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_code_terminal">
+
+            <!-- Terminal Output Text -->
+            <ScrollView
+                android:id="@+id/scrollConsoleOutput"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+
+                <TextView
+                    android:id="@+id/tvConsoleOutput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:textColor="#58A6FF"
+                    android:textSize="11sp"
+                    android:fontFamily="monospace"
+                    android:text="› Maphula Claude Code Console ready.\n› Tap 'Run ▶' or send an AI instruction below." />
+            </ScrollView>
+
+            <!-- Embedded WebView for Live Web Rendering (Hidden for non-HTML) -->
+            <WebView
+                android:id="@+id/wvLivePreview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <!-- Stats Bar: Line count, cyclomatic complexity, memory -->
+        <LinearLayout
+            android:id="@+id/layoutCodeStats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingVertical="4dp"
+            android:paddingHorizontal="4dp">
+
+            <TextView
+                android:id="@+id/tvCodeStats"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Lines: 14 • Complexity: 2 • Sovereign Offline Engine"
+                android:textColor="@color/text_muted"
+                android:textSize="10sp"
+                android:fontFamily="monospace" />
+
+            <TextView
+                android:id="@+id/tvLinterBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="✓ 0 Errors"
+                android:textColor="@color/accent_green"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:fontFamily="monospace" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Bottom Claude Code AI Prompt Bar -->
+    <LinearLayout
+        android:id="@+id/layoutClaudeCodeBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="8dp"
+        android:background="@color/surface_dark">
+
+        <!-- Preset Quick Tasks Button -->
+        <ImageButton
+            android:id="@+id/btnQuickCodeTemplates"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:background="@drawable/bg_ios_circle_button"
+            android:src="@drawable/ic_sparkles"
+            app:tint="@color/text_primary"
+            android:padding="8dp"
+            android:scaleType="fitCenter"
+            android:contentDescription="Code Presets" />
+
+        <!-- Instruction Input Box -->
+        <EditText
+            android:id="@+id/etCodePrompt"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="6dp"
+            android:background="@drawable/bg_input_field"
+            android:paddingHorizontal="12dp"
+            android:hint="Ask Claude Code (e.g. 'implement binary search')"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_muted"
+            android:textSize="13sp"
+            android:inputType="textCapSentences"
+            android:imeOptions="actionSend" />
+
+        <!-- Generate / Apply Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnApplyCodex"
+            android:layout_width="40dp"
+            android:layout_height="38dp"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            app:cornerRadius="10dp"
+            android:padding="0dp"
+            app:icon="@drawable/ic_send"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:iconTint="#FFFFFF"
+            app:backgroundTint="@color/primary"
+            android:contentDescription="Generate Code" />
+    </LinearLayout>
+
+</LinearLayout>

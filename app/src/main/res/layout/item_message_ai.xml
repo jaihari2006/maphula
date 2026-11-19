@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="start"
+    android:paddingVertical="4dp">
+
+    <LinearLayout
+        android:id="@+id/layoutAiBubble"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:orientation="vertical"
+        android:background="@drawable/bg_chat_ai"
+        android:padding="12dp">
+
+        <!-- AI Header Row: Persona Tag + Action Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="6dp">
+
+            <TextView
+                android:id="@+id/tvAiPersona"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Krishna"
+                android:textColor="@color/secondary"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_chip"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="2dp" />
+
+            <!-- RAG Citation Badge -->
+            <TextView
+                android:id="@+id/tvRagCitation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="📖 Verified Source"
+                android:textColor="@color/accent_green"
+                android:textSize="10sp"
+                android:visibility="gone"
+                android:background="@drawable/bg_chip"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="2dp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <!-- Copy Button -->
+            <ImageButton
+                android:id="@+id/btnCopyMessage"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_copy"
+                android:contentDescription="Copy Text" />
+
+            <!-- Speak in Deity Voice Button -->
+            <ImageButton
+                android:id="@+id/btnSpeakAiMessage"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="4dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_volume_up"
+                android:contentDescription="Speak in Deity Voice" />
+        </LinearLayout>
+
+        <!-- Message Body -->
+        <TextView
+            android:id="@+id/tvAiMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            android:lineSpacingExtra="3dp"
+            android:textIsSelectable="true" />
+
+        <!-- Play Game Banner (Visible when AI generated an HTML5 game) -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLaunchGame"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="10dp"
+            android:text="🎮 Play Created Game Now"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:icon="@drawable/ic_play"
+            app:iconTint="#FFFFFF"
+            app:cornerRadius="12dp"
+            app:backgroundTint="@color/accent_green" />
+
+        <!-- Timestamp -->
+        <TextView
+            android:id="@+id/tvAiTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/text_muted"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+</LinearLayout>

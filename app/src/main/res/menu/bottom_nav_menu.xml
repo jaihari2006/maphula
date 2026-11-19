@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_chat"
+        android:icon="@drawable/ic_chat"
+        android:title="@string/tab_chat" />
+    <item
+        android:id="@+id/nav_code"
+        android:icon="@drawable/ic_code"
+        android:title="@string/tab_code" />
+    <item
+        android:id="@+id/nav_creative"
+        android:icon="@drawable/ic_sparkles"
+        android:title="@string/tab_creative" />
+    <item
+        android:id="@+id/nav_knowledge"
+        android:icon="@drawable/ic_knowledge"
+        android:title="@string/tab_knowledge" />
+    <item
+        android:id="@+id/nav_neural"
+        android:icon="@drawable/ic_neural"
+        android:title="@string/tab_neural" />
+</menu>

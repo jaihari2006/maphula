@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Maphula</string>
+    <string name="tab_chat">AI Chat</string>
+    <string name="tab_creative">Creative AI</string>
+    <string name="tab_code">Code Studio</string>
+    <string name="tab_knowledge">Knowledge</string>
+    <string name="tab_nlp">NLP Studio</string>
+    <string name="tab_neural">Neural Lab</string>
+</resources>

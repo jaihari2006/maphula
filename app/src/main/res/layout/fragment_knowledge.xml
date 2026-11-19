@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_dark">
+
+    <!-- Search & Online Sync Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:background="@color/surface_dark">
+
+        <!-- Online Knowledge Sync Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+
+            <LinearLayout
+                android:id="@+id/layoutKnowledgeSyncStatus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <View
+                    android:id="@+id/vKnowledgeDot"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:background="@drawable/bg_chip"
+                    android:backgroundTint="@color/accent_green" />
+
+                <TextView
+                    android:id="@+id/tvKnowledgeSyncStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:text="Offline Mode (Local Knowledge)"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnImportDoc"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:paddingHorizontal="6dp"
+                android:text="📥 Ingest Note"
+                android:textColor="@color/accent_cyan"
+                android:textSize="11sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnMindMap"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:paddingHorizontal="6dp"
+                android:text="🕸️ Mind Map"
+                android:textColor="@color/accent_green"
+                android:textSize="11sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSyncOnline"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:paddingHorizontal="6dp"
+                android:text="🌐 Sync"
+                android:textColor="@color/secondary"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/etSearchKnowledge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_input_field"
+            android:hint="Search offline knowledge (e.g. CPR, Quicksort)..."
+            android:textColorHint="@color/text_muted"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="10dp"
+            android:inputType="text"
+            android:maxLines="1" />
+
+        <!-- Category Filters -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:layout_marginTop="8dp">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroupCategories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:singleSelection="true"
+                app:selectionRequired="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/catAll"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="All"
+                    android:checked="true"
+                    android:textColor="@color/text_primary"
+                    app:chipBackgroundColor="@color/surface_variant_dark" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/catSynced"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🌐 Online Synced"
+                    android:textColor="@color/text_primary"
+                    app:chipBackgroundColor="@color/surface_variant_dark" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/catPersonal"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📝 Personal Notes"
+                    android:textColor="@color/text_primary"
+                    app:chipBackgroundColor="@color/surface_variant_dark" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/catEmergency"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Emergency &amp; Survival"
+                    android:textColor="@color/text_primary"
+                    app:chipBackgroundColor="@color/surface_variant_dark" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/catCS"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Computer Science"
+                    android:textColor="@color/text_primary"
+                    app:chipBackgroundColor="@color/surface_variant_dark" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/catScience"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Science &amp; Physics"
+                    android:textColor="@color/text_primary"
+                    app:chipBackgroundColor="@color/surface_variant_dark" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/catPhilosophy"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Philosophy &amp; Logic"
+                    android:textColor="@color/text_primary"
+                    app:chipBackgroundColor="@color/surface_variant_dark" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/catScriptures"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📿 Sacred Scriptures"
+                    android:textColor="@color/text_primary"
+                    app:chipBackgroundColor="@color/surface_variant_dark" />
+
+            </com.google.android.material.chip.ChipGroup>
+        </HorizontalScrollView>
+    </LinearLayout>
+
+    <!-- Articles List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvKnowledge"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:padding="12dp" />
+
+</LinearLayout>

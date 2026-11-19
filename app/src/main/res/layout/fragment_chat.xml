@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_dark">
+
+    <!-- Persona Selector Scroll (Apple Cupertino Segmented Control Style) -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:paddingVertical="8dp"
+        android:paddingHorizontal="12dp"
+        android:background="@color/surface_dark">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_ios_segmented_control"
+            android:padding="3dp">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroupPersonas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:singleSelection="true"
+                app:selectionRequired="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipKrishna"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🦚 Krishna • Guide"
+                android:checked="true"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_variant_dark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipShiva"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="💻 Shiva • Code Buddy"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_variant_dark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipBrahma"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📐 Brahma • Science"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_variant_dark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipGanesha"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🧩 Ganesha • Problem Solver"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_variant_dark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipMuruga"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⚡ Muruga • Productivity"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_variant_dark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipHanuman"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🛡️ Hanuman • Health"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_variant_dark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipLakshmi"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🌸 Lakshmi • Creative"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_variant_dark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipParvathi"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🌿 Parvathi • Companion"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_variant_dark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipNarasimha"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔒 Narasimha • Safety"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_variant_dark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipShani"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⏱️ Shani • Focus"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_variant_dark" />
+
+        </com.google.android.material.chip.ChipGroup>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Quick Prompts Horizontal Scroll -->
+    <HorizontalScrollView
+        android:id="@+id/scrollSuggestions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:paddingVertical="6dp"
+        android:paddingHorizontal="12dp">
+
+        <LinearLayout
+            android:id="@+id/layoutSuggestions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/suggestion1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_chip"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="6dp"
+                android:text="🎮 Create a Game"
+                android:textColor="@color/secondary"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/suggestion2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_chip"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="6dp"
+                android:text="⏰ Add a Reminder"
+                android:textColor="@color/accent_rose"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/suggestion3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_chip"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="6dp"
+                android:text="📝 Create To-Do List"
+                android:textColor="@color/accent_green"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/suggestion4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_chip"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="6dp"
+                android:text="⚔️ Text Adventure RPG"
+                android:textColor="@color/primary"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Messages List & Empty State Welcome Container -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvMessages"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:padding="12dp" />
+
+        <!-- Welcome Banner / Empty State (Welcomes user directly on screen without generating a chat message) -->
+        <ScrollView
+            android:id="@+id/layoutChatWelcomeState"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:scrollbars="none"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal|center_vertical"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="32dp">
+
+                <!-- Welcome Badge / Avatar Icon -->
+                <FrameLayout
+                    android:id="@+id/frameWelcomeIconContainer"
+                    android:layout_width="88dp"
+                    android:layout_height="88dp"
+                    android:background="@drawable/bg_ios_card">
+
+                    <TextView
+                        android:id="@+id/tvWelcomeEmoji"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="🕉️"
+                        android:textSize="44sp" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tvWelcomeTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Welcome to Maphula"
+                    android:textColor="@color/text_primary"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.02" />
+
+                <TextView
+                    android:id="@+id/tvWelcomeSubtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="100% Sovereign Offline AI • On-Device Neural Intelligence"
+                    android:textColor="@color/text_muted"
+                    android:textSize="13sp"
+                    android:textAlignment="center" />
+
+                <!-- Feature Highlights Pills -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="20dp">
+
+                    <LinearLayout
+                        android:id="@+id/cardWelcomeFeature1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/bg_card"
+                        android:padding="12dp"
+                        android:layout_marginBottom="8dp">
+
+                        <TextView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:gravity="center"
+                            android:background="@drawable/bg_chip"
+                            android:text="🔒"
+                            android:textSize="18sp" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="12dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Zero-Cloud Offline First"
+                                android:textColor="@color/text_primary"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="All reasoning, NLP, and neural models run locally on your hardware."
+                                android:textColor="@color/text_muted"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/cardWelcomeFeature2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/bg_card"
+                        android:padding="12dp"
+                        android:layout_marginBottom="8dp">
+
+                        <TextView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:gravity="center"
+                            android:background="@drawable/bg_chip"
+                            android:text="📁"
+                            android:textSize="18sp" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="12dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Multi-Modal Media Upload"
+                                android:textColor="@color/text_primary"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Inspect PDFs, audio recordings, documents, and pictures offline."
+                                android:textColor="@color/text_muted"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/cardWelcomeFeature3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/bg_card"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:gravity="center"
+                            android:background="@drawable/bg_chip"
+                            android:text="⚡"
+                            android:textSize="18sp" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="12dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Friendly AI Persona &amp; Skills"
+                                android:textColor="@color/text_primary"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Select an AI persona above or type below to begin your chat."
+                                android:textColor="@color/text_muted"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvWelcomePromptHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="✨ Tap a starter prompt above or type a message below to begin"
+                    android:textColor="@color/primary"
+                    android:textSize="12sp"
+                    android:textStyle="italic" />
+
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+
+    <!-- Live Audio Recording Banner (Hidden by default) -->
+    <LinearLayout
+        android:id="@+id/layoutVoiceRecordingBanner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp"
+        android:background="#991E293B"
+        android:visibility="gone">
+
+        <View
+            android:id="@+id/viewRecDot"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:background="@drawable/bg_chip"
+            android:backgroundTint="@color/accent_red" />
+
+        <TextView
+            android:id="@+id/tvVoiceRecordingStatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:text="🎤 Listening... Speak offline prompt (Tap mic to finish)"
+            android:textColor="@color/accent_red"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Pending File Attachment Preview Banner (Hidden when null) -->
+    <LinearLayout
+        android:id="@+id/layoutAttachmentPreview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="14dp"
+        android:paddingVertical="8dp"
+        android:background="@drawable/bg_card"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginBottom="6dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvPreviewAttachmentEmoji"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📄"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvPreviewAttachmentName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="document.pdf"
+                android:textColor="@color/text_primary"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:singleLine="true" />
+
+            <TextView
+                android:id="@+id/tvPreviewAttachmentMeta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PDF Document • 240 KB"
+                android:textColor="@color/secondary"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btnRemoveAttachment"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_clear"
+            app:tint="@color/text_muted"
+            android:scaleType="fitCenter"
+            android:contentDescription="Remove Attachment" />
+    </LinearLayout>
+
+    <!-- iOS Frosted Hairline Divider -->
+    <View
+        android:id="@+id/viewInputDivider"
+        android:layout_width="match_parent"
+        android:layout_height="0.6dp"
+        android:background="#2C2C2E" />
+
+    <!-- Bottom Message Input Bar (Apple iMessage Dock Style) -->
+    <LinearLayout
+        android:id="@+id/layoutChatInputBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="8dp"
+        android:background="@color/surface_dark">
+
+        <!-- Upload & Attach File Button (iOS Circular Plus / Attachment Button) -->
+        <ImageButton
+            android:id="@+id/btnUploadAttachment"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:background="@drawable/bg_ios_circle_button"
+            android:src="@drawable/ic_arrow_up"
+            app:tint="@color/text_primary"
+            android:padding="8dp"
+            android:scaleType="fitCenter"
+            android:contentDescription="Upload File Attachment" />
+
+        <!-- New Chat Button (iOS Circular Plus Icon) -->
+        <ImageButton
+            android:id="@+id/btnNewChat"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/bg_ios_circle_button"
+            android:src="@drawable/ic_add"
+            app:tint="@color/text_primary"
+            android:padding="7dp"
+            android:scaleType="fitCenter"
+            android:contentDescription="Start New Chat" />
+
+        <!-- Language Selector Button (Multi-Lingual Input) -->
+        <ImageButton
+            android:id="@+id/btnLanguageSelector"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/bg_ios_circle_button"
+            android:src="@drawable/ic_translate"
+            app:tint="@color/text_primary"
+            android:padding="7dp"
+            android:scaleType="fitCenter"
+            android:contentDescription="Switch Input Language" />
+
+        <!-- Input Text Box (Apple Messages Capsule Input Field) -->
+        <EditText
+            android:id="@+id/etMessage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="6dp"
+            android:background="@drawable/bg_ios_input_field"
+            android:hint="iMessage • Offline AI"
+            android:textColorHint="@color/text_muted"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            android:paddingHorizontal="14dp"
+            android:paddingVertical="9dp"
+            android:maxLines="4"
+            android:fontFamily="sans-serif"
+            android:inputType="textMultiLine|textCapSentences" />
+
+        <!-- Voice Input Microphone Button (iOS Circular Mic) -->
+        <ImageButton
+            android:id="@+id/btnVoiceInput"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginEnd="6dp"
+            android:background="@drawable/bg_ios_circle_button"
+            android:src="@drawable/ic_mic"
+            app:tint="@color/text_primary"
+            android:padding="7dp"
+            android:scaleType="fitCenter"
+            android:contentDescription="Voice Input" />
+
+        <!-- Send Button (Apple iMessage Circular Up-Arrow Button) -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnSend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fabCustomSize="36dp"
+            app:backgroundTint="@color/ios_blue"
+            app:tint="#FFFFFF"
+            android:src="@drawable/ic_arrow_up"
+            android:contentDescription="Send Message"
+            app:elevation="2dp" />
+    </LinearLayout>
+
+</LinearLayout>

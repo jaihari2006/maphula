@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base Theme (Defaults to Matte Finish) -->
+    <style name="Theme.OfflineAI" parent="Theme.OfflineAI.Matte" />
+
+    <!-- 1. Matte Finish Theme: Low-sheen velvety dark graphite & soft micro-borders -->
+    <style name="Theme.OfflineAI.Matte" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/matte_accent</item>
+        <item name="colorPrimaryVariant">#7C3AED</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorSecondaryVariant">#0891B2</item>
+        <item name="colorOnSecondary">#000000</item>
+        <item name="android:colorBackground">@color/matte_bg</item>
+        <item name="colorSurface">@color/matte_surface</item>
+        <item name="colorSurfaceVariant">@color/matte_surface_variant</item>
+        <item name="android:statusBarColor">@color/matte_bg</item>
+        <item name="android:navigationBarColor">@color/matte_surface</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <!-- 2. Solid Color Theme: Pure high-contrast jet onyx & bold flat blocking -->
+    <style name="Theme.OfflineAI.Solid" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/solid_accent</item>
+        <item name="colorPrimaryVariant">#1D4ED8</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorSecondary">#10B981</item>
+        <item name="colorSecondaryVariant">#059669</item>
+        <item name="colorOnSecondary">#000000</item>
+        <item name="android:colorBackground">@color/solid_bg</item>
+        <item name="colorSurface">@color/solid_surface</item>
+        <item name="colorSurfaceVariant">@color/solid_surface_variant</item>
+        <item name="android:statusBarColor">@color/solid_bg</item>
+        <item name="android:navigationBarColor">@color/solid_surface</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <!-- 3. Glassy Theme: Frosted acrylic translucent panels & neon specular glow -->
+    <style name="Theme.OfflineAI.Glassy" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/glassy_accent</item>
+        <item name="colorPrimaryVariant">#0284C7</item>
+        <item name="colorOnPrimary">#040814</item>
+        <item name="colorSecondary">@color/glassy_secondary</item>
+        <item name="colorSecondaryVariant">#9333EA</item>
+        <item name="colorOnSecondary">#000000</item>
+        <item name="android:colorBackground">@color/glassy_bg</item>
+        <item name="colorSurface">@color/glassy_surface</item>
+        <item name="colorSurfaceVariant">@color/glassy_surface_variant</item>
+        <item name="android:statusBarColor">@color/glassy_bg</item>
+        <item name="android:navigationBarColor">#10152B</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <!-- Smooth Bottom Sheet Window Animations -->
+    <style name="Animation.OfflineAI.BottomSheet" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/bottom_sheet_enter</item>
+        <item name="android:windowExitAnimation">@anim/bottom_sheet_exit</item>
+    </style>
+</resources>

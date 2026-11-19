@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="@color/card_dark">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/tvRoundTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Round 1: Opening Assault"
+            android:textColor="@color/accent_cyan"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvRoundDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Red Team attacks while White Team parries."
+            android:textColor="@color/secondary"
+            android:textSize="10sp" />
+
+        <!-- Dynamic Round Health & Armor Gauge -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvRoundMetrics"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="🛡️ Integrity: 72% • Armor: 85% • Penetration: 40%"
+                    android:textColor="@color/accent_green"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/pbRoundIntegrity"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:layout_marginTop="4dp"
+                android:progress="72"
+                android:max="100"
+                android:progressTint="@color/accent_green" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#22FFFFFF"
+            android:layout_marginVertical="8dp" />
+
+        <TextView
+            android:id="@+id/tvRoundTurnsText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bot dialogue statement"
+            android:textColor="@color/text_primary"
+            android:textSize="11sp"
+            android:lineSpacingExtra="3dp" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

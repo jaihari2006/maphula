@@ -1,0 +1,730 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_dark">
+
+    <!-- Top Sub-Tab Mode Selector -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:background="@color/surface_dark">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🎨 Generative Creative Studio"
+            android:textColor="@color/text_primary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="100% On-device image diffusion, motion video frames, and voice cloning"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupModes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:singleSelection="true"
+            app:selectionRequired="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipModeImage"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎨 Image Gen"
+                android:checked="true"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_variant_dark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipModeVideo"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎬 Video Gen"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_variant_dark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipModeVoice"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎙️ Voice Cloning"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_variant_dark" />
+        </com.google.android.material.chip.ChipGroup>
+    </LinearLayout>
+
+    <!-- Scrollable Content Container -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- ================= IMAGE GENERATION CONTAINER ================= -->
+            <LinearLayout
+                android:id="@+id/layoutImageSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Prompt Description"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etImagePrompt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/bg_input_field"
+                    android:hint="e.g. Cyberpunk neon skyline with flying vehicles..."
+                    android:textColorHint="@color/text_muted"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="10dp" />
+
+                <!-- Quick Prompt Suggestions -->
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/imgQuickCyber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="6dp"
+                            android:background="@drawable/bg_chip"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="5dp"
+                            android:text="🏙️ Cyber City"
+                            android:textColor="@color/secondary"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:id="@+id/imgQuickCosmic"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="6dp"
+                            android:background="@drawable/bg_chip"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="5dp"
+                            android:text="🌌 Cosmic Nebula"
+                            android:textColor="@color/secondary"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:id="@+id/imgQuickSynth"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="6dp"
+                            android:background="@drawable/bg_chip"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="5dp"
+                            android:text="🌅 Synthwave Sunset"
+                            android:textColor="@color/secondary"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:id="@+id/imgQuickNeural"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="6dp"
+                            android:background="@drawable/bg_chip"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="5dp"
+                            android:text="🧠 Quantum Neural"
+                            android:textColor="@color/secondary"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:id="@+id/imgQuickBio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_chip"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="5dp"
+                            android:text="🍄 Bioluminescence"
+                            android:textColor="@color/secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <!-- Style Selector -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="Generative Style Model"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipGroupStyles"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    app:singleSelection="true"
+                    app:selectionRequired="true">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/styleCyberpunk"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cyberpunk"
+                        android:checked="true"
+                        android:textColor="@color/text_primary"
+                        app:chipBackgroundColor="@color/surface_variant_dark" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/styleCosmic"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cosmic Nebula"
+                        android:textColor="@color/text_primary"
+                        app:chipBackgroundColor="@color/surface_variant_dark" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/styleSynthwave"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Synthwave"
+                        android:textColor="@color/text_primary"
+                        app:chipBackgroundColor="@color/surface_variant_dark" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/styleNeural"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Quantum Neural"
+                        android:textColor="@color/text_primary"
+                        app:chipBackgroundColor="@color/surface_variant_dark" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/styleBio"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bioluminescent"
+                        android:textColor="@color/text_primary"
+                        app:chipBackgroundColor="@color/surface_variant_dark" />
+                </com.google.android.material.chip.ChipGroup>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnGenerateImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="🎨 Synthesize On-Device Image"
+                    android:textColor="@color/on_primary"
+                    app:backgroundTint="@color/primary"
+                    app:cornerRadius="8dp" />
+
+                <!-- Progress & Status -->
+                <ProgressBar
+                    android:id="@+id/pbImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="12dp"
+                    android:indeterminateTint="@color/secondary"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tvImageStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:textColor="@color/secondary"
+                    android:textSize="12sp"
+                    android:visibility="gone" />
+
+                <!-- Image Output Preview Card -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardImageResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    app:cardBackgroundColor="@color/surface_dark"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="3dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <ImageView
+                            android:id="@+id/ivGeneratedImage"
+                            android:layout_width="match_parent"
+                            android:layout_height="260dp"
+                            android:scaleType="fitCenter"
+                            android:background="@color/bg_dark"
+                            android:contentDescription="Generated AI Image" />
+
+                        <TextView
+                            android:id="@+id/tvImageDetails"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="384 × 384 • Procedural Latent Diffusion • Seed: 49201"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp"
+                            android:gravity="center" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnExportGeneratedImage"
+                            android:layout_width="match_parent"
+                            android:layout_height="42dp"
+                            android:layout_marginTop="8dp"
+                            android:text="💾 Save Artwork to Gallery &amp; Share"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            app:backgroundTint="@color/accent_purple"
+                            app:cornerRadius="8dp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+
+            <!-- ================= VIDEO GENERATION CONTAINER ================= -->
+            <LinearLayout
+                android:id="@+id/layoutVideoSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Select Motion Dynamics"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipGroupVideoModes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:singleSelection="true"
+                    app:selectionRequired="true">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/videoModeCosmic"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🌌 Cosmic Orbit"
+                        android:checked="true"
+                        android:textColor="@color/text_primary"
+                        app:chipBackgroundColor="@color/surface_variant_dark" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/videoModeNeural"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🧠 Neural Pulse"
+                        android:textColor="@color/text_primary"
+                        app:chipBackgroundColor="@color/surface_variant_dark" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/videoModeWave"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🌊 Quantum Wave"
+                        android:textColor="@color/text_primary"
+                        app:chipBackgroundColor="@color/surface_variant_dark" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/videoModeMatrix"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="💻 Cyber Matrix"
+                        android:textColor="@color/text_primary"
+                        app:chipBackgroundColor="@color/surface_variant_dark" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/videoModeDrive"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🏎️ Synthwave Drive"
+                        android:textColor="@color/text_primary"
+                        app:chipBackgroundColor="@color/surface_variant_dark" />
+                </com.google.android.material.chip.ChipGroup>
+
+                <TextView
+                    android:id="@+id/tvVideoModeDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="Orbiting stellar cluster with rotating deep-space perspective."
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnGenerateVideo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="🎬 Render Generative Video Frames"
+                    android:textColor="@color/on_primary"
+                    app:backgroundTint="@color/secondary"
+                    app:cornerRadius="8dp" />
+
+                <ProgressBar
+                    android:id="@+id/pbVideo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="12dp"
+                    android:indeterminateTint="@color/secondary"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tvVideoStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:textColor="@color/secondary"
+                    android:textSize="12sp"
+                    android:visibility="gone" />
+
+                <!-- Video Frame Player View -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardVideoPlayer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    app:cardBackgroundColor="@color/surface_dark"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="3dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <ImageView
+                            android:id="@+id/ivVideoFrame"
+                            android:layout_width="match_parent"
+                            android:layout_height="240dp"
+                            android:scaleType="fitCenter"
+                            android:background="@color/bg_dark"
+                            android:contentDescription="Rendered Video Frame" />
+
+                        <!-- Player Controls -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="10dp">
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnPlayPauseVideo"
+                                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="⏸ Pause"
+                                android:textColor="@color/secondary"
+                                app:strokeColor="@color/secondary"
+                                android:textSize="12sp" />
+
+                            <SeekBar
+                                android:id="@+id/sbVideoTimeline"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginHorizontal="8dp"
+                                android:max="24"
+                                android:progress="0" />
+
+                            <TextView
+                                android:id="@+id/tvVideoFrameCounter"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1/24"
+                                android:textColor="@color/text_primary"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+
+            <!-- ================= VOICE DUPLICATION CONTAINER ================= -->
+            <LinearLayout
+                android:id="@+id/layoutVoiceSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Select Cloned Voice Identity"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <!-- Voice Profile Selector -->
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:scrollbars="none">
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chipGroupVoices"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:singleSelection="true"
+                        app:selectionRequired="true">
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/voiceKrishna"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🦚 Krishna"
+                            android:checked="true"
+                            android:textColor="@color/text_primary"
+                            app:chipBackgroundColor="@color/surface_variant_dark" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/voiceShiva"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🔱 Shiva"
+                            android:textColor="@color/text_primary"
+                            app:chipBackgroundColor="@color/surface_variant_dark" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/voiceBrahma"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🪷 Brahma"
+                            android:textColor="@color/text_primary"
+                            app:chipBackgroundColor="@color/surface_variant_dark" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/voiceGanesha"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🐘 Ganesha"
+                            android:textColor="@color/text_primary"
+                            app:chipBackgroundColor="@color/surface_variant_dark" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/voiceMuruga"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="⚡ Muruga"
+                            android:textColor="@color/text_primary"
+                            app:chipBackgroundColor="@color/surface_variant_dark" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/voiceHanuman"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🛡️ Hanuman"
+                            android:textColor="@color/text_primary"
+                            app:chipBackgroundColor="@color/surface_variant_dark" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/voiceLakshmi"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🌸 Lakshmi"
+                            android:textColor="@color/text_primary"
+                            app:chipBackgroundColor="@color/surface_variant_dark" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/voiceParvathi"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🏔️ Parvathi"
+                            android:textColor="@color/text_primary"
+                            app:chipBackgroundColor="@color/surface_variant_dark" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/voiceNarasimha"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🦁 Narasimha"
+                            android:textColor="@color/text_primary"
+                            app:chipBackgroundColor="@color/surface_variant_dark" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/voiceShani"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="⚖️ Shani"
+                            android:textColor="@color/text_primary"
+                            app:chipBackgroundColor="@color/surface_variant_dark" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/voiceCustom"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🧬 Custom Cloned Voice"
+                            android:textColor="@color/text_primary"
+                            app:chipBackgroundColor="@color/surface_variant_dark" />
+                    </com.google.android.material.chip.ChipGroup>
+                </HorizontalScrollView>
+
+                <TextView
+                    android:id="@+id/tvVoiceProfileDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="Fundamental Pitch F0: 135 Hz • Warmth: 85% • Analytical timbre."
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp" />
+
+                <!-- Real-Time Waveform Visualizer -->
+                <com.offlineai.app.ui.creative.VoiceWaveformVisualizerView
+                    android:id="@+id/waveformVisualizer"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/bg_chip" />
+
+                <!-- Text to Speak -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="Text to Duplicate &amp; Speak"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etVoiceText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/bg_input_field"
+                    android:text="Namaste, I am Krishna. Operating 100% locally on your device with complete privacy."
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="10dp" />
+
+                <!-- Voice Cloning Action Buttons -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="16dp">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSpeakClonedVoice"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="🔊 Speak in Cloned Voice"
+                        android:textColor="@color/on_primary"
+                        app:backgroundTint="@color/primary"
+                        app:cornerRadius="8dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnCalibrateVoice"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="🎙️ Calibrate"
+                        android:textColor="@color/secondary"
+                        app:strokeColor="@color/secondary"
+                        app:cornerRadius="8dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnRecordMicVoice"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:text="🎤 Live Mic"
+                        android:textColor="@color/accent_rose"
+                        app:strokeColor="@color/accent_rose"
+                        app:cornerRadius="8dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvVoiceFeedback"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="Acoustic model ready for offline synthesis."
+                    android:textColor="@color/accent_green"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

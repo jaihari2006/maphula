@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layoutDrawerSkillsRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/surface_dark"
+    android:padding="16dp">
+
+    <!-- Header Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="12dp">
+
+        <TextView
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:background="@drawable/bg_chip"
+            android:gravity="center"
+            android:text="⚡"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvDrawerTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Skills &amp; Capabilities"
+                android:textColor="@color/text_primary"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Autonomous Multi-Agent Skills"
+                android:textColor="@color/secondary"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btnCloseDrawer"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/bg_chip"
+            android:src="@drawable/ic_close"
+            android:padding="8dp"
+            android:scaleType="fitCenter"
+            app:tint="@color/text_primary"
+            android:contentDescription="Close Skills Drawer" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#22FFFFFF"
+        android:layout_marginBottom="14dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- SKILL 1: RAVANA ADVERSARIAL ARENA -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardSkillRavana"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/card_dark">
+
+                <LinearLayout
+                    android:id="@+id/layoutSkillRavanaContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="⚔️"
+                            android:textSize="24sp" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="10dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Ravana"
+                                android:textColor="@color/text_primary"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Adversarial Idea Crucible"
+                                android:textColor="@color/accent_rose"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_chip"
+                            android:text="2–10 BOTS"
+                            android:textColor="@color/accent_cyan"
+                            android:textSize="9sp"
+                            android:textStyle="bold"
+                            android:paddingHorizontal="6dp"
+                            android:paddingVertical="3dp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Deploys minimum 2 up to 10 fierce AI bots that fight between themselves to stress-test your idea or question and declare if it will SURVIVE or PERISH."
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp"
+                        android:lineSpacingExtra="2dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="🔴 Red vs 🟢 White Team"
+                            android:textColor="#94A3B8"
+                            android:textSize="11sp" />
+
+                        <Button
+                            android:id="@+id/btnOpenRavanaSkill"
+                            android:layout_width="wrap_content"
+                            android:layout_height="36dp"
+                            android:text="Enter Arena ⚔️"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            android:textColor="#FFFFFF"
+                            android:background="@drawable/bg_button_gradient"
+                            android:paddingHorizontal="12dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- SKILL 2: GITA WISDOM MATRIX -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardSkillGita"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/card_dark">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📿"
+                        android:textSize="22sp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Gita Wisdom Matrix"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Karma Yoga &amp; 432Hz Audio Chants"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnOpenGitaSkill"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:text="Chant"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"
+                        android:background="@drawable/bg_chip"
+                        android:paddingHorizontal="10dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- SKILL 3: NEURAL TOPOLOGY LAB -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardSkillNeural"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/card_dark">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🧬"
+                        android:textSize="22sp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Neural Topology Lab"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Live Synaptic Perceptron Backprop"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnOpenNeuralSkill"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:text="Train"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"
+                        android:background="@drawable/bg_chip"
+                        android:paddingHorizontal="10dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- SKILL 4: ACOUSTIC VOICE CLONER -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardSkillVoice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/card_dark">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🎙️"
+                        android:textSize="22sp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Voice Duplication Studio"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Multi-Profile Acoustic Cloning"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnOpenVoiceSkill"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:text="Clone"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"
+                        android:background="@drawable/bg_chip"
+                        android:paddingHorizontal="10dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- SKILL 5: SEMANTIC VECTOR RAG -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardSkillRag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/card_dark">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📚"
+                        android:textSize="22sp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Semantic Vector Storage"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="100% On-Device TF-IDF Engine"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnOpenRagSkill"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:text="Search"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"
+                        android:background="@drawable/bg_chip"
+                        android:paddingHorizontal="10dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Skill 6: NLP Studio -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/surface_dark">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="14dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_chip"
+                        android:gravity="center"
+                        android:text="🔬"
+                        android:textSize="22sp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="NLP Studio"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Linguistic Tokens, Sentiment &amp; Vectors"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnOpenNlpSkill"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:text="Open"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"
+                        android:background="@drawable/bg_chip"
+                        android:paddingHorizontal="10dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- 7. Home Screen Widget Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardSkillWidget"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/surface_dark">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🏠"
+                        android:textSize="26sp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="12dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Home Screen Widget"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1-Tap AI Chat, Voice &amp; Daily Inspiration"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnOpenWidgetSkill"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:text="Add"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"
+                        android:background="@drawable/bg_chip"
+                        android:paddingHorizontal="10dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Drawer Footer Note -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="✨ App Created by Jaihari U S • 100% Offline Autonomous AI"
+        android:textColor="@color/secondary"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:paddingTop="8dp" />
+
+</LinearLayout>

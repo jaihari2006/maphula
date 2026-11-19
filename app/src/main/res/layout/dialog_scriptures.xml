@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/surface_dark"
+    android:padding="20dp">
+
+    <!-- Drag Handle -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/bg_chip"
+        android:backgroundTint="@color/text_muted" />
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📿"
+            android:textSize="22sp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sacred Scriptures &amp; Wisdom Library"
+                android:textColor="@color/text_primary"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Bhagavad Gita, Upanishads, Yoga Sutras, Thirukkural &amp; Vedic Math"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvScriptureIndex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1/10"
+            android:textColor="@color/secondary"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Scripture Filter Chips -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/layoutScriptureFilterChips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/chipFilterAll"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/bg_chip"
+                android:paddingHorizontal="10dp"
+                android:gravity="center"
+                android:text="All Verses"
+                android:textColor="@color/text_primary"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/chipFilterGita"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/bg_chip"
+                android:paddingHorizontal="10dp"
+                android:gravity="center"
+                android:text="🦚 Bhagavad Gita"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/chipFilterUpanishads"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/bg_chip"
+                android:paddingHorizontal="10dp"
+                android:gravity="center"
+                android:text="🪷 Upanishads"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/chipFilterYoga"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/bg_chip"
+                android:paddingHorizontal="10dp"
+                android:gravity="center"
+                android:text="🔱 Yoga Sutras"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/chipFilterThirukkural"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/bg_chip"
+                android:paddingHorizontal="10dp"
+                android:gravity="center"
+                android:text="⚡ Thirukkural"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/chipFilterVedicMath"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/bg_chip"
+                android:paddingHorizontal="10dp"
+                android:gravity="center"
+                android:text="🐘 Vedic Math"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/chipFilterMantras"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:background="@drawable/bg_chip"
+                android:paddingHorizontal="10dp"
+                android:gravity="center"
+                android:text="✨ Mantras"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Verse Card Container -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="12dp"
+        android:maxHeight="380dp">
+
+        <LinearLayout
+            android:id="@+id/cardCurrentVerse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card"
+            android:padding="16dp">
+
+            <!-- Title & Section -->
+            <TextView
+                android:id="@+id/tvVerseScriptureTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bhagavad Gita"
+                android:textColor="@color/secondary"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvVerseSection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Chapter 2, Verse 47"
+                android:textColor="@color/text_muted"
+                android:textSize="11sp" />
+
+            <!-- Original Script (Sanskrit Devanagari or Tamil) -->
+            <TextView
+                android:id="@+id/tvVerseOriginalScript"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।\nमा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि॥"
+                android:textColor="#FDE047"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:lineSpacingExtra="4dp" />
+
+            <!-- Roman Transliteration -->
+            <TextView
+                android:id="@+id/tvVerseTransliteration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="karmaṇy-evādhikāras te mā phaleṣhu kadāchana"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                android:textStyle="italic" />
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="10dp"
+                android:background="@color/card_stroke" />
+
+            <!-- English Translation -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ENGLISH TRANSLATION"
+                android:textColor="@color/text_muted"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvVerseEnglish"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="You have a right to perform your prescribed duty, but you are not entitled to the fruits of action."
+                android:textColor="@color/text_primary"
+                android:textSize="13sp"
+                android:lineSpacingExtra="3dp" />
+
+            <!-- Deep Commentary -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="PHILOSOPHICAL SIGNIFICANCE &amp; MAPHULA"
+                android:textColor="@color/text_muted"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvVerseMeaning"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Foundational principle of Karma Yoga and origin of Maphula (Mā Phala = without clinging)."
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                android:lineSpacingExtra="2dp" />
+
+            <!-- Presiding Deity Badge -->
+            <TextView
+                android:id="@+id/tvVerseDeityBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_chip"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="4dp"
+                android:text="🦚 Presiding Deity: Krishna"
+                android:textColor="@color/accent_purple"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Navigation & Audio Control Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="12dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPrevVerse"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="4dp"
+            android:text="◀ Prev"
+            android:textSize="11sp"
+            app:strokeColor="@color/card_stroke"
+            app:cornerRadius="10dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPlaySacredTone"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_weight="1.6"
+            android:layout_marginHorizontal="4dp"
+            android:text="🔊 Chant Resonance"
+            android:textSize="11sp"
+            app:backgroundTint="@color/accent_gold"
+            app:cornerRadius="10dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNextVerse"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_weight="1"
+            android:layout_marginStart="4dp"
+            android:text="Next ▶"
+            android:textSize="11sp"
+            app:strokeColor="@color/card_stroke"
+            app:cornerRadius="10dp" />
+    </LinearLayout>
+
+    <!-- Ask Deity AI Button -->
+    <!-- Recite in Deity Voice Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnReciteShlokaVoice"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginTop="8dp"
+        android:text="🎙️ Recite Meaning in Deity Voice"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:cornerRadius="10dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAskDeityVerse"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginTop="8dp"
+        android:text="💬 Ask Krishna AI About This Shloka"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/secondary"
+        app:cornerRadius="10dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnCloseScriptures"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:layout_marginTop="4dp"
+        android:text="Dismiss"
+        android:textColor="@color/text_muted"
+        android:textSize="12sp" />
+
+</LinearLayout>

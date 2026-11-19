@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/surface_dark"
+    android:padding="20dp">
+
+    <!-- Drag Handle -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_chip"
+        android:backgroundTint="@color/text_muted" />
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🌐"
+            android:textSize="22sp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Input Language"
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="100% Offline Multi-Lingual Input &amp; Voice Synthesis"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btnCloseLanguageDialog"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_close"
+            app:tint="@color/text_secondary"
+            android:contentDescription="Close Language Dialog" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvActiveLanguageBadge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_chip"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="4dp"
+        android:text="Active: 🇺🇸 English"
+        android:textColor="@color/secondary"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="340dp"
+        android:layout_marginTop="12dp">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupLanguages"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:singleSelection="true"
+            app:selectionRequired="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/langEnglish"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🇺🇸 English (Default)"
+                android:checked="true"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_variant_dark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/langHindi"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🇮🇳 हिन्दी (Hindi)"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_variant_dark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/langTamil"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🇮🇳 தமிழ் (Tamil)"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_variant_dark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/langTelugu"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🇮🇳 తెలుగు (Telugu)"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_variant_dark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/langSanskrit"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🕉️ संस्कृतम् (Sanskrit)"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_variant_dark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/langSpanish"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🇪🇸 Español (Spanish)"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_variant_dark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/langFrench"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🇫🇷 Français (French)"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_variant_dark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/langGerman"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🇩🇪 Deutsch (German)"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_variant_dark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/langJapanese"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🇯🇵 日本語 (Japanese)"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_variant_dark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/langRussian"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🇷🇺 Русский (Russian)"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_variant_dark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/langArabic"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🇸🇦 العربية (Arabic)"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_variant_dark" />
+        </com.google.android.material.chip.ChipGroup>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,14 @@
+# Gradle and Android build outputs
+*.iml
+.gradle/
+local.properties
+.idea/
+.DS_Store
+build/
+app/build/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Duplicate alias APK
+mapula.apk

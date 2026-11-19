@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Modern Tech AI Dark Palette -->
+    <color name="primary">#7C3AED</color>
+    <color name="primary_variant">#6D28D9</color>
+    <color name="on_primary">#FFFFFF</color>
+    <color name="secondary">#06B6D4</color>
+    <color name="secondary_variant">#0891B2</color>
+    <color name="on_secondary">#000000</color>
+    <color name="accent_green">#10B981</color>
+    <color name="accent_amber">#F59E0B</color>
+    <color name="accent_rose">#F43F5E</color>
+    <color name="accent_purple">#8B5CF6</color>
+    <color name="accent_gold">#EAB308</color>
+    <color name="accent_red">#EF4444</color>
+    <color name="accent_cyan">#22D3EE</color>
+    <color name="accent_indigo">#6366F1</color>
+    <color name="accent_pink">#EC4899</color>
+    <color name="accent_teal">#14B8A6</color>
+    <color name="accent_orange">#F97316</color>
+
+    <!-- Background and Surface Colors -->
+    <color name="bg_dark">#0F172A</color>
+    <color name="surface_dark">#1E293B</color>
+    <color name="surface_variant_dark">#334155</color>
+    <color name="card_dark">#1E293B</color>
+    <color name="card_stroke">#334155</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#F8FAFC</color>
+    <color name="text_secondary">#94A3B8</color>
+    <color name="text_muted">#64748B</color>
+
+    <!-- Chat Bubbles -->
+    <color name="chat_user_bg">#4338CA</color>
+    <color name="chat_ai_bg">#1E293B</color>
+    <color name="chat_code_bg">#090D16</color>
+
+    <!-- Theme 1: Matte Finish -->
+    <color name="matte_bg">#121318</color>
+    <color name="matte_surface">#1A1C24</color>
+    <color name="matte_surface_variant">#252834</color>
+    <color name="matte_card">#1E202B</color>
+    <color name="matte_stroke">#2E3244</color>
+    <color name="matte_accent">#8B5CF6</color>
+    <color name="matte_chat_user">#4F46E5</color>
+    <color name="matte_chat_ai">#1E202B</color>
+
+    <!-- Theme 2: Solid Color -->
+    <color name="solid_bg">#0A0A0D</color>
+    <color name="solid_surface">#14141A</color>
+    <color name="solid_surface_variant">#1F1F28</color>
+    <color name="solid_card">#181822</color>
+    <color name="solid_stroke">#333344</color>
+    <color name="solid_accent">#2563EB</color>
+    <color name="solid_chat_user">#1D4ED8</color>
+    <color name="solid_chat_ai">#181822</color>
+
+    <!-- Theme 3: Glassy (Glassmorphism) -->
+    <color name="glassy_bg">#0A0D1A</color>
+    <color name="glassy_surface">#B312182D</color>
+    <color name="glassy_surface_variant">#801A233F</color>
+    <color name="glassy_card">#5916203B</color>
+    <color name="glassy_stroke">#5938BDF8</color>
+    <color name="glassy_accent">#38BDF8</color>
+    <color name="glassy_secondary">#C084FC</color>
+    <color name="glassy_chat_user">#806D28D9</color>
+    <color name="glassy_chat_ai">#4D16203B</color>
+
+    <!-- Dedicated Hindu Deity Color Palettes -->
+    <!-- 1. Krishna (Cosmic Wisdom & Supreme Clarity) -->
+    <color name="deity_krishna_primary">#7C3AED</color>
+    <color name="deity_krishna_secondary">#C084FC</color>
+    <color name="deity_krishna_aura">#337C3AED</color>
+
+    <!-- 2. Shiva (Systems Transformer & Computational Architecture) -->
+    <color name="deity_shiva_primary">#06B6D4</color>
+    <color name="deity_shiva_secondary">#38BDF8</color>
+    <color name="deity_shiva_aura">#3306B6D4</color>
+
+    <!-- 3. Brahma (First-Principles Science & Natural Law) -->
+    <color name="deity_brahma_primary">#F59E0B</color>
+    <color name="deity_brahma_secondary">#FBBF24</color>
+    <color name="deity_brahma_aura">#33F59E0B</color>
+
+    <!-- 4. Ganesha (Intellect & Obstacle Removal) -->
+    <color name="deity_ganesha_primary">#EA580C</color>
+    <color name="deity_ganesha_secondary">#FB923C</color>
+    <color name="deity_ganesha_aura">#33EA580C</color>
+
+    <!-- 5. Muruga (Tactical Mastery & Piercing Jnana Vel) -->
+    <color name="deity_muruga_primary">#E11D48</color>
+    <color name="deity_muruga_secondary">#FB7185</color>
+    <color name="deity_muruga_aura">#33E11D48</color>
+
+    <!-- 6. Hanuman (Emergency Lifesaver & Resilient Protection) -->
+    <color name="deity_hanuman_primary">#DC2626</color>
+    <color name="deity_hanuman_secondary">#F87171</color>
+    <color name="deity_hanuman_aura">#33DC2626</color>
+
+    <!-- 7. Lakshmi (Creative Arts & Aesthetic Flourishing) -->
+    <color name="deity_lakshmi_primary">#DB2777</color>
+    <color name="deity_lakshmi_secondary">#F472B6</color>
+    <color name="deity_lakshmi_aura">#33DB2777</color>
+
+    <!-- 8. Parvathi (Shakti & Analytical Harmony) -->
+    <color name="deity_parvathi_primary">#059669</color>
+    <color name="deity_parvathi_secondary">#34D399</color>
+    <color name="deity_parvathi_aura">#33059669</color>
+
+    <!-- 9. Narasimha (Cybersecurity & Invariant Defense) -->
+    <color name="deity_narasimha_primary">#B45309</color>
+    <color name="deity_narasimha_secondary">#D97706</color>
+    <color name="deity_narasimha_aura">#33B45309</color>
+
+    <!-- 10. Shani (Discipline & Strict Optimization) -->
+    <color name="deity_shani_primary">#64748B</color>
+    <color name="deity_shani_secondary">#94A3B8</color>
+    <color name="deity_shani_aura">#3364748B</color>
+
+    <!-- Glow & Halo Accents -->
+    <color name="glow_violet">#407C3AED</color>
+    <color name="glow_cyan">#4006B6D4</color>
+    <color name="glow_amber">#40F59E0B</color>
+    <color name="glow_emerald">#4010B981</color>
+    <color name="glow_rose">#40E11D48</color>
+    <color name="glow_gold">#40EAB308</color>
+    <color name="glow_azure">#402563EB</color>
+
+    <!-- Tactile Button Gradient Stops -->
+    <color name="btn_gradient_violet_start">#7C3AED</color>
+    <color name="btn_gradient_violet_end">#4F46E5</color>
+    <color name="btn_gradient_cyan_start">#0891B2</color>
+    <color name="btn_gradient_cyan_end">#06B6D4</color>
+    <color name="btn_gradient_gold_start">#D97706</color>
+    <color name="btn_gradient_gold_end">#F59E0B</color>
+    <color name="btn_gradient_rose_start">#BE123C</color>
+    <color name="btn_gradient_rose_end">#E11D48</color>
+    <color name="btn_gradient_emerald_start">#047857</color>
+    <color name="btn_gradient_emerald_end">#10B981</color>
+
+    <!-- Apple iOS Liquid Glass (iOS 18 / visionOS) Colors -->
+    <color name="ios_blue">#007AFF</color>
+    <color name="ios_blue_dark">#0A84FF</color>
+    <color name="ios_liquid_cyan">#22D3EE</color>
+    <color name="ios_liquid_glass_bg">#070913</color>
+    <color name="ios_liquid_glass_surface">#D9101626</color>
+    <color name="ios_liquid_glass_card">#331E283E</color>
+    <color name="ios_liquid_glass_stroke">#38FFFFFF</color>
+    <color name="ios_liquid_glass_highlight">#59FFFFFF</color>
+    <color name="ios_liquid_glass_chip">#33243048</color>
+    <color name="ios_green">#34C759</color>
+    <color name="ios_indigo">#5856D6</color>
+    <color name="ios_orange">#FF9500</color>
+    <color name="ios_pink">#FF2D55</color>
+    <color name="ios_purple">#AF52DE</color>
+    <color name="ios_red">#FF3B30</color>
+    <color name="ios_teal">#5AC8FA</color>
+    <color name="ios_yellow">#FFCC00</color>
+    <color name="ios_gray">#8E8E93</color>
+    <color name="ios_gray2">#636366</color>
+    <color name="ios_gray3">#48484A</color>
+    <color name="ios_gray4">#3A3A3C</color>
+    <color name="ios_gray5">#2C2C2E</color>
+    <color name="ios_gray6">#1C1C1E</color>
+    <color name="ios_bg_dark">#000000</color>
+    <color name="ios_bg_light">#F2F2F7</color>
+    <color name="ios_separator">#38383A</color>
+
+    <!-- Bright UI Colors for Solid Color & Matte Finish -->
+    <color name="bright_cyber_yellow">#FFD600</color>
+    <color name="bright_cyber_yellow_light">#FFF176</color>
+    <color name="bright_electric_cyan">#00E5FF</color>
+    <color name="bright_electric_cyan_light">#80F2FF</color>
+    <color name="bright_hot_magenta">#FF007F</color>
+    <color name="bright_hot_magenta_light">#FF66B2</color>
+    <color name="bright_radiant_lime">#00E676</color>
+    <color name="bright_radiant_lime_light">#69F0AE</color>
+    <color name="bright_blazing_orange">#FF6D00</color>
+    <color name="bright_blazing_orange_light">#FFA040</color>
+    <color name="bright_electric_blue">#0066FF</color>
+    <color name="bright_electric_blue_light">#66A3FF</color>
+    <color name="bright_ultra_violet">#A855F7</color>
+    <color name="bright_ultra_violet_light">#D8B4FE</color>
+</resources>

@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Main App Container Wrapped in FrameLayout to support App Open Splash Animation -->
+    <FrameLayout
+        android:id="@+id/layoutAppRootFrame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/layoutMainContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/bg_dark">
+
+        <!-- Apple iOS Status Bar & Dynamic Island Capsule -->
+        <LinearLayout
+            android:id="@+id/layoutIosStatusBar"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="14dp"
+            android:background="@color/surface_dark">
+
+            <!-- iOS Status Time (Left side) -->
+            <TextView
+                android:id="@+id/tvIosStatusTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="9:41"
+                android:textColor="@color/text_primary"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-medium" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <!-- Apple Dynamic Island Capsule -->
+            <LinearLayout
+                android:id="@+id/layoutDynamicIsland"
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_dynamic_island"
+                android:paddingHorizontal="9dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <!-- Front Camera / Sensor Dot -->
+                <View
+                    android:id="@+id/viewIslandCameraDot"
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/bg_dynamic_island_camera" />
+
+                <!-- Dynamic Island Status Icon -->
+                <TextView
+                    android:id="@+id/tvIslandIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🧠"
+                    android:textSize="10sp" />
+
+                <!-- Dynamic Island Text -->
+                <TextView
+                    android:id="@+id/tvIslandStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="Offline AI Core"
+                    android:textColor="#FFFFFF"
+                    android:textSize="9sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-medium" />
+
+                <!-- Live Pulse Dot -->
+                <View
+                    android:id="@+id/viewIslandPulse"
+                    android:layout_width="5dp"
+                    android:layout_height="5dp"
+                    android:layout_marginStart="6dp"
+                    android:background="@drawable/bg_chip"
+                    android:backgroundTint="#34C759" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <!-- iOS System Status Icons (Signal, 5G/Offline, Battery Pill) -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvIosSignal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="●●●●"
+                    android:textColor="@color/text_primary"
+                    android:textSize="7sp"
+                    android:letterSpacing="0.1" />
+
+                <TextView
+                    android:id="@+id/tvIosOfflinePill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="🔒 Offline"
+                    android:textColor="#34C759"
+                    android:textSize="9sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvIosBattery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="🔋 100%"
+                    android:textColor="@color/text_primary"
+                    android:textSize="9sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Top App Bar / Header -->
+        <LinearLayout
+            android:id="@+id/layoutTopHeader"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="10dp"
+            android:background="@color/surface_dark">
+
+            <!-- Skills Tab Button (Swiped from left edge or tapped) -->
+            <LinearLayout
+                android:id="@+id/btnSkillsTab"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_chip"
+                android:paddingHorizontal="6dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⚡"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tvSkillsTabTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:text="Skills"
+                    android:textColor="@color/accent_cyan"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Top Left Corner: Universal Calendar Tab -->
+            <LinearLayout
+                android:id="@+id/layoutCalendarTab"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_chip"
+                android:paddingHorizontal="6dp"
+                android:layout_marginStart="4dp"
+                android:clickable="true"
+                android:focusable="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📅"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tvCalendarYearTab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:text="2026"
+                android:textColor="@color/text_primary"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:typeface="monospace" />
+        </LinearLayout>
+
+        <!-- Sacred Scriptures & Wisdom Library Tab -->
+        <LinearLayout
+            android:id="@+id/btnScripturesTab"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_chip"
+            android:paddingHorizontal="6dp"
+            android:layout_marginStart="4dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📖"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:text="Wisdom"
+                android:textColor="@color/secondary"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Offline Voice Assistant Tab -->
+        <LinearLayout
+            android:id="@+id/btnVoiceAssistantTab"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_chip"
+            android:paddingHorizontal="6dp"
+            android:layout_marginStart="4dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎙️"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tvVoiceAssistantTabTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:text="Voice"
+                android:textColor="@color/secondary"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvAppTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:text="Maphula"
+            android:textColor="@color/text_primary"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:singleLine="true" />
+
+        <!-- UI Theme Switcher Badge -->
+        <LinearLayout
+            android:id="@+id/layoutThemeBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_chip"
+            android:paddingHorizontal="6dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:id="@+id/tvThemeIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🖤"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tvThemeName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:text="Matte"
+                android:textColor="@color/text_primary"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Network Status Badge -->
+        <LinearLayout
+            android:id="@+id/layoutNetworkBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_chip"
+            android:paddingHorizontal="6dp"
+            android:layout_marginStart="4dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <View
+                android:id="@+id/viewNetworkDot"
+                android:layout_width="7dp"
+                android:layout_height="7dp"
+                android:background="@drawable/bg_chip"
+                android:backgroundTint="@color/accent_green" />
+
+            <TextView
+                android:id="@+id/tvNetworkStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="OFFLINE"
+                android:textColor="@color/accent_green"
+                android:textSize="9sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Settings Button -->
+        <ImageButton
+            android:id="@+id/btnSettings"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="4dp"
+            android:background="@drawable/bg_chip"
+            android:src="@drawable/ic_settings"
+            android:padding="7dp"
+            android:scaleType="fitCenter"
+            app:tint="@color/text_primary"
+            android:contentDescription="Settings" />
+
+        <!-- Top Right Corner: 8-Bit Digital Clock showing Days, Hours, Minutes, Seconds -->
+        <LinearLayout
+            android:id="@+id/layoutClock8Bit"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_clock_8bit"
+            android:paddingHorizontal="8dp"
+            android:layout_marginStart="6dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:id="@+id/tvClock8Bit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="15D 17:05:42"
+                android:textColor="#00FFCC"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:typeface="monospace" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Main Fragment Container -->
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- iOS Hairline Divider Above Bottom Bar -->
+    <View
+        android:id="@+id/viewBottomNavDivider"
+        android:layout_width="match_parent"
+        android:layout_height="0.6dp"
+        android:background="#2C2C2E" />
+
+    <!-- Bottom Navigation Bar -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/surface_dark"
+        app:itemIconTint="@color/selector_nav_item"
+        app:itemTextColor="@color/selector_nav_item"
+        app:menu="@menu/bottom_nav_menu"
+        app:elevation="4dp" />
+
+    <!-- Apple iPhone Home Indicator Bar (Signature Bezel Gesture Area) -->
+    <FrameLayout
+        android:id="@+id/layoutHomeIndicatorContainer"
+        android:layout_width="match_parent"
+        android:layout_height="18dp"
+        android:background="@color/surface_dark">
+
+        <View
+            android:id="@+id/viewHomeIndicator"
+            android:layout_width="134dp"
+            android:layout_height="5dp"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_ios_home_indicator" />
+    </FrameLayout>
+
+    </LinearLayout>
+
+    <!-- App Open Cinematic Splash Overlay -->
+    <FrameLayout
+        android:id="@+id/layoutAppOpenSplash"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#070B14"
+        android:clickable="true"
+        android:focusable="true">
+
+        <!-- Center Content Container -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <!-- App Icon with Expanding Halo (Transition Starts from Here) -->
+            <FrameLayout
+                android:id="@+id/splashLogoContainer"
+                android:layout_width="120dp"
+                android:layout_height="120dp">
+
+                <View
+                    android:id="@+id/splashGlowRing"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bg_chip"
+                    android:backgroundTint="#3038BDF8" />
+
+                <!-- The Actual Maphula Launcher App Icon Card -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardSplashAppIcon"
+                    android:layout_width="86dp"
+                    android:layout_height="86dp"
+                    android:layout_gravity="center"
+                    app:cardCornerRadius="22dp"
+                    app:cardElevation="10dp"
+                    app:cardBackgroundColor="#0B0F19">
+
+                    <ImageView
+                        android:id="@+id/ivSplashAppIcon"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitCenter"
+                        android:src="@mipmap/ic_launcher"
+                        android:contentDescription="Maphula App Icon" />
+                </androidx.cardview.widget.CardView>
+            </FrameLayout>
+
+            <!-- Brand Title -->
+            <TextView
+                android:id="@+id/tvSplashTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="MAPHULA"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.25" />
+
+            <!-- Badge -->
+            <TextView
+                android:id="@+id/tvSplashBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_chip"
+                android:text="✦ SOVEREIGN ON-DEVICE AI ✦"
+                android:textColor="#10B981"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="4dp" />
+
+            <!-- Tagline -->
+            <TextView
+                android:id="@+id/tvSplashTagline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Air-Gapped • Local Deep Neural Engine"
+                android:textColor="#94A3B8"
+                android:textSize="12sp" />
+
+            <!-- Progress / Status -->
+            <LinearLayout
+                android:id="@+id/layoutSplashStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ProgressBar
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="160dp"
+                    android:layout_height="4dp"
+                    android:indeterminate="true"
+                    android:indeterminateTint="#38BDF8" />
+
+                <TextView
+                    android:id="@+id/tvSplashStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Initializing Neural Topology..."
+                    android:textColor="#64748B"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Creator Credit (Appears at End of Open Animation) -->
+        <LinearLayout
+            android:id="@+id/layoutCreatorCredit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="32dp"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tvCreatorCredit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_chip"
+                android:text="✨ App Created by Jaihari U S"
+                android:textColor="#38BDF8"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:paddingHorizontal="18dp"
+                android:paddingVertical="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Karma Yoga // Pure Focus Without Fruit Anxiety"
+                android:textColor="#94A3B8"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+    </FrameLayout>
+
+    </FrameLayout>
+
+    <!-- Left Navigation Drawer: Skills Panel (Revealed when swiped from left edge or tapped) -->
+    <LinearLayout
+        android:id="@+id/navSkillsDrawer"
+        android:layout_width="320dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:orientation="vertical"
+        android:background="@color/surface_dark"
+        android:clickable="true"
+        android:focusable="true">
+
+        <include
+            android:id="@+id/drawerSkillsMenu"
+            layout="@layout/drawer_skills_menu" />
+
+    </LinearLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

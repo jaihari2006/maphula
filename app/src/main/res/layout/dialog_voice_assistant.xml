@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/surface_dark"
+    android:padding="20dp">
+
+    <!-- Drag Handle -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/bg_chip"
+        android:backgroundTint="@color/text_muted" />
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🎙️"
+            android:textSize="24sp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Offline Deity Voice Assistant"
+                android:textColor="@color/text_primary"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="100% On-Device Sovereign Speech • Sacred Hindu God Personas"
+                android:textColor="@color/secondary"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btnCloseAssistantModal"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_clear"
+            app:tint="@color/text_muted"
+            android:scaleType="fitCenter"
+            android:contentDescription="Close" />
+    </LinearLayout>
+
+    <!-- Deity Voice Model Selector Chips -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="SELECT HINDU DEITY VOICE MODEL"
+        android:textColor="@color/secondary"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.08" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:scrollbars="none">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupAssistantDeities"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/vaChipKrishna"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="🦚 Krishna"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_variant_dark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/vaChipShiva"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔱 Shiva"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_variant_dark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/vaChipBrahma"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🪷 Brahma"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_variant_dark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/vaChipGanesha"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🐘 Ganesha"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_variant_dark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/vaChipMuruga"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⚡ Muruga"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_variant_dark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/vaChipHanuman"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🛡️ Hanuman"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_variant_dark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/vaChipLakshmi"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🌸 Lakshmi"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_variant_dark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/vaChipParvathi"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🏔️ Parvathi"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_variant_dark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/vaChipNarasimha"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🦁 Narasimha"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_variant_dark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/vaChipShani"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⚖️ Shani"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/surface_variant_dark" />
+
+        </com.google.android.material.chip.ChipGroup>
+    </HorizontalScrollView>
+
+    <!-- Active Deity Showcase Card & Live Waveform -->
+    <LinearLayout
+        android:id="@+id/layoutVoiceCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_card"
+        android:orientation="vertical"
+        android:padding="14dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tvDeityVoiceAvatar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🦚"
+                android:textSize="26sp" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvDeityVoiceTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Krishna • Cosmic Resonance"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvDeityVoiceAcoustics"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pitch: 135 Hz F0 • Formant: 1.0x • Harmonic Warmth: 0.95"
+                    android:textColor="@color/secondary"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <!-- Test Voice Sample Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnTestDeityVoice"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:paddingHorizontal="10dp"
+                android:text="🔊 Sample"
+                android:textSize="11sp"
+                app:cornerRadius="8dp" />
+        </LinearLayout>
+
+        <!-- Live Harmonic Audio Waveform Visualizer -->
+        <com.offlineai.app.ui.creative.VoiceWaveformVisualizerView
+            android:id="@+id/vaWaveformVisualizer"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="12dp"
+            android:background="#1A000000" />
+
+        <!-- Status & Spoken Transcription Text -->
+        <TextView
+            android:id="@+id/tvAssistantStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="Tap mic to speak offline or select a prompt below"
+            android:textColor="@color/secondary"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <!-- Spoken Query / Response Bubble -->
+        <TextView
+            android:id="@+id/tvAssistantResponse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/bg_chip"
+            android:padding="10dp"
+            android:text="Radhe Radhe. I am Krishna, ready to speak cosmic wisdom into your inquiries."
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"
+            android:maxLines="6"
+            android:scrollbars="vertical" />
+    </LinearLayout>
+
+    <!-- Main Mic & Playback Control Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="16dp">
+
+        <!-- Stop Speaking Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnStopSpeaking"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:layout_marginEnd="16dp"
+            android:text="⏹️ Stop Voice"
+            android:textSize="12sp"
+            app:cornerRadius="10dp" />
+
+        <!-- Central Big Microphone Button -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnVoiceAssistantMic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fabCustomSize="58dp"
+            app:backgroundTint="@color/primary"
+            app:tint="@color/on_primary"
+            android:src="@drawable/ic_mic"
+            android:contentDescription="Speak to Deity Voice Assistant"
+            app:elevation="6dp" />
+
+        <!-- Auto-Speak Toggle Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnToggleAutoSpeak"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:layout_marginStart="16dp"
+            android:text="🔊 Auto-Speak: OFF"
+            android:textSize="11sp"
+            app:cornerRadius="10dp" />
+    </LinearLayout>
+
+    <!-- Voice Speed Cadence Controls -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="14dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CADENCE:"
+            android:textColor="@color/secondary"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08" />
+
+        <HorizontalScrollView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/btnSpeedSlow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/bg_chip"
+                    android:paddingHorizontal="8dp"
+                    android:gravity="center"
+                    android:text="🧘 0.8x Meditative"
+                    android:textColor="@color/text_primary"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/btnSpeedNormal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/bg_chip"
+                    android:paddingHorizontal="8dp"
+                    android:gravity="center"
+                    android:text="✨ 1.0x Normal"
+                    android:textColor="@color/secondary"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/btnSpeedFast"
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/bg_chip"
+                    android:paddingHorizontal="8dp"
+                    android:gravity="center"
+                    android:text="⚡ 1.25x Dynamic"
+                    android:textColor="@color/text_primary"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/btnSpeedRapid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    android:background="@drawable/bg_chip"
+                    android:paddingHorizontal="8dp"
+                    android:gravity="center"
+                    android:text="🚀 1.5x Rapid"
+                    android:textColor="@color/text_primary"
+                    android:textSize="10sp" />
+            </LinearLayout>
+        </HorizontalScrollView>
+    </LinearLayout>
+
+    <!-- Quick Spoken Prompts Header -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="OR TAP INSTANT DEITY VOICE INQUIRY"
+        android:textColor="@color/secondary"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.08" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/promptBlessing"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/bg_chip"
+                android:paddingHorizontal="10dp"
+                android:gravity="center"
+                android:text="🦚 Bestow Wisdom &amp; Clarity"
+                android:textColor="@color/text_primary"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/promptCodeArchitecture"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/bg_chip"
+                android:paddingHorizontal="10dp"
+                android:gravity="center"
+                android:text="🔱 Code Purity &amp; Algorithms"
+                android:textColor="@color/text_primary"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/promptRemoveObstacles"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/bg_chip"
+                android:paddingHorizontal="10dp"
+                android:gravity="center"
+                android:text="🐘 Remove Difficult Obstacles"
+                android:textColor="@color/text_primary"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/promptFirstAid"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/bg_chip"
+                android:paddingHorizontal="10dp"
+                android:gravity="center"
+                android:text="🛡️ Emergency Life Protection"
+                android:textColor="@color/text_primary"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/promptFirstPrinciples"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/bg_chip"
+                android:paddingHorizontal="10dp"
+                android:gravity="center"
+                android:text="🪷 First-Principles Quantum Physics"
+                android:textColor="@color/text_primary"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/promptCreativePoetry"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:background="@drawable/bg_chip"
+                android:paddingHorizontal="10dp"
+                android:gravity="center"
+                android:text="🌸 Storytelling &amp; Poetic Beauty"
+                android:textColor="@color/text_primary"
+                android:textSize="11sp" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+</LinearLayout>

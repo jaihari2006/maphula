@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/surface_dark"
+    android:padding="16dp">
+
+    <!-- Drag Handle -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/bg_chip"
+        android:backgroundTint="#475569"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="📅 UNIVERSAL CALENDAR"
+            android:textColor="@color/secondary"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08" />
+
+        <TextView
+            android:id="@+id/tvEraLimitBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ERA: 1 - 9999 AD"
+            android:textColor="#00FFCC"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:typeface="monospace"
+            android:background="@drawable/bg_clock_8bit"
+            android:paddingHorizontal="6dp"
+            android:paddingVertical="2dp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="Days of the month synchronized with deity festivals and cosmic celebrations."
+        android:textColor="@color/text_secondary"
+        android:textSize="12sp" />
+
+    <!-- ================= YEAR SELECTOR ================= -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/bg_card"
+        android:padding="8dp">
+
+        <ImageButton
+            android:id="@+id/btnPrevYear"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/bg_chip"
+            android:src="@drawable/ic_play"
+            android:rotation="180"
+            android:padding="8dp"
+            app:tint="@color/text_primary"
+            android:contentDescription="Previous Year" />
+
+        <TextView
+            android:id="@+id/tvCurrentYear"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="2026"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:typeface="monospace" />
+
+        <ImageButton
+            android:id="@+id/btnNextYear"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/bg_chip"
+            android:src="@drawable/ic_play"
+            android:padding="8dp"
+            app:tint="@color/text_primary"
+            android:contentDescription="Next Year" />
+    </LinearLayout>
+
+    <!-- Quick Year Jump Chips -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:layout_marginTop="6dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/chipYearToday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📍 Today (2026)"
+                android:textColor="@color/text_primary"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_chip"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp"
+                android:layout_marginEnd="6dp" />
+
+            <TextView
+                android:id="@+id/chipYear2030"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2030"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp"
+                android:background="@drawable/bg_chip"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp"
+                android:layout_marginEnd="6dp" />
+
+            <TextView
+                android:id="@+id/chipYear2050"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2050"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp"
+                android:background="@drawable/bg_chip"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp"
+                android:layout_marginEnd="6dp" />
+
+            <TextView
+                android:id="@+id/chipYear3000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3000"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp"
+                android:background="@drawable/bg_chip"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp"
+                android:layout_marginEnd="6dp" />
+
+            <TextView
+                android:id="@+id/chipYearMax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="9999 (Max Era)"
+                android:textColor="#00FFCC"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_chip"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp"
+                android:layout_marginEnd="6dp" />
+
+            <TextView
+                android:id="@+id/chipYear1AD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 AD (Origin)"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp"
+                android:background="@drawable/bg_chip"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- ================= MONTH SELECTOR ================= -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageButton
+            android:id="@+id/btnPrevMonth"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/bg_chip"
+            android:src="@drawable/ic_play"
+            android:rotation="180"
+            android:padding="8dp"
+            app:tint="@color/text_primary"
+            android:contentDescription="Previous Month" />
+
+        <TextView
+            android:id="@+id/tvCurrentMonth"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="NOVEMBER 2026"
+            android:textColor="@color/secondary"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.06" />
+
+        <ImageButton
+            android:id="@+id/btnNextMonth"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/bg_chip"
+            android:src="@drawable/ic_play"
+            android:padding="8dp"
+            app:tint="@color/text_primary"
+            android:contentDescription="Next Month" />
+    </LinearLayout>
+
+    <!-- Days of Week Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="SUN"
+            android:textColor="#F43F5E"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="MON"
+            android:textColor="@color/text_muted"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="TUE"
+            android:textColor="@color/text_muted"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="WED"
+            android:textColor="@color/text_muted"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="THU"
+            android:textColor="@color/text_muted"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="FRI"
+            android:textColor="@color/text_muted"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="SAT"
+            android:textColor="#06B6D4"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Days of Month Grid Container -->
+    <GridLayout
+        android:id="@+id/gridCalendarDays"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="7"
+        android:layout_marginTop="6dp"
+        android:alignmentMode="alignMargins"
+        android:useDefaultMargins="true" />
+
+    <!-- ================= CELEBRATION DETAILS CARD ================= -->
+    <LinearLayout
+        android:id="@+id/cardCelebrationDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_card"
+        android:padding="12dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tvCelebrationEmoji"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🦚"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="8dp">
+
+                <TextView
+                    android:id="@+id/tvCelebrationTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kartika Dev Deepawali Phase"
+                    android:textColor="@color/text_primary"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvCelebrationCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Presiding Deity: 🦚 Lord Krishna • Cosmic Wisdom"
+                    android:textColor="@color/secondary"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvCelebrationSelectedDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nov 15"
+                android:textColor="@color/text_muted"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:typeface="monospace" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvCelebrationDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="The auspicious holy month of Kartika where lighting a single lamp equates to thousands of oblations."
+            android:textColor="@color/text_secondary"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/tvCelebrationRituals"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="• Observance: Lighting Akhanda deepam at sunset, reciting Shiva Bilvashtakam, meditating under the stars."
+            android:textColor="@color/text_muted"
+            android:textSize="10sp" />
+
+        <!-- Ask Deity AI Shortcut -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAskDeityAboutCelebration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="🦚 Ask Krishna AI About This Celebration"
+            android:textSize="11sp"
+            android:backgroundTint="@color/secondary"
+            android:textColor="@color/text_primary" />
+    </LinearLayout>
+
+    <!-- Close Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnCloseCalendar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Dismiss"
+        android:textSize="11sp"
+        android:backgroundTint="@color/surface_variant_dark"
+        android:textColor="@color/text_primary" />
+
+</LinearLayout>

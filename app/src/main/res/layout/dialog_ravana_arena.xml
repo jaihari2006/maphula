@@ -1,0 +1,689 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/surface_dark"
+    android:padding="16dp">
+
+    <!-- Modal Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="12dp">
+
+        <TextView
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:background="@drawable/bg_chip"
+            android:gravity="center"
+            android:text="⚔️"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ravana Idea Crucible"
+                android:textColor="@color/text_primary"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Multi-Bot Adversarial Stress Test"
+                android:textColor="@color/secondary"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btnCloseRavana"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/bg_chip"
+            android:src="@drawable/ic_close"
+            android:padding="8dp"
+            android:scaleType="fitCenter"
+            app:tint="@color/text_primary"
+            android:contentDescription="Close Ravana Arena" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#22FFFFFF"
+        android:layout_marginBottom="12dp" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- SECTION 1: BOT CONFIGURATION (MIN 2, MAX ANYTIME) -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="@color/card_dark">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="ARENA BOTS (MIN 2 • MAX 10):"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <!-- Stepper Controls -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <Button
+                                android:id="@+id/btnDecreaseBots"
+                                android:layout_width="34dp"
+                                android:layout_height="34dp"
+                                android:text="-"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/text_primary"
+                                android:background="@drawable/bg_chip"
+                                android:padding="0dp" />
+
+                            <TextView
+                                android:id="@+id/tvBotCount"
+                                android:layout_width="54dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="2 Bots"
+                                android:textColor="@color/accent_cyan"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <Button
+                                android:id="@+id/btnIncreaseBots"
+                                android:layout_width="34dp"
+                                android:layout_height="34dp"
+                                android:text="+"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/text_primary"
+                                android:background="@drawable/bg_chip"
+                                android:padding="0dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvBotRosterDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="🔴 Inquisitor Red (Attacker) vs 🟢 Architect White (Defender)"
+                        android:textColor="@color/secondary"
+                        android:textSize="11sp" />
+
+                    <!-- Active Bot Avatars -->
+                    <TextView
+                        android:id="@+id/tvBotAvatarsRow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="🔴  🟢"
+                        android:textSize="18sp" />
+
+                    <!-- Custom Bot Archetype Builder Trigger -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp">
+
+                        <Button
+                            android:id="@+id/btnAddCustomBot"
+                            android:layout_width="wrap_content"
+                            android:layout_height="32dp"
+                            android:text="➕ Build Custom Bot Archetype"
+                            android:textSize="10sp"
+                            android:textColor="@color/accent_cyan"
+                            android:background="@drawable/bg_chip"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="0dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- SECTION 2: IDEA INPUT -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="QUESTION OR IDEA TO TEST:"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="6dp" />
+
+            <EditText
+                android:id="@+id/etIdeaInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minLines="3"
+                android:maxLines="6"
+                android:gravity="top|start"
+                android:hint="Enter any question, startup idea, software architecture, or career decision for the bots to fight over..."
+                android:textColorHint="#64748B"
+                android:textColor="@color/text_primary"
+                android:textSize="13sp"
+                android:background="@drawable/bg_input_field"
+                android:padding="12dp"
+                android:layout_marginBottom="10dp" />
+
+            <!-- Quick Preset Idea Chips -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:layout_marginBottom="14dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/chipIdea1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_chip"
+                        android:text="🤖 AI writing all code autonomously"
+                        android:textColor="@color/text_primary"
+                        android:textSize="10sp"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="6dp"
+                        android:layout_marginEnd="6dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <TextView
+                        android:id="@+id/chipIdea2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_chip"
+                        android:text="🚀 Quit job for on-device AI startup"
+                        android:textColor="@color/text_primary"
+                        android:textSize="10sp"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="6dp"
+                        android:layout_marginEnd="6dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <TextView
+                        android:id="@+id/chipIdea3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_chip"
+                        android:text="📁 Replace databases with flat files"
+                        android:textColor="@color/text_primary"
+                        android:textSize="10sp"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="6dp"
+                        android:layout_marginEnd="6dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <TextView
+                        android:id="@+id/chipIdea4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_chip"
+                        android:text="🛡️ 100% sovereign local AI"
+                        android:textColor="@color/text_primary"
+                        android:textSize="10sp"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="6dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <!-- SECTION 2.5: MID-BATTLE TACTICAL REINFORCEMENTS -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/card_dark">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="🛡️ TACTICAL REINFORCEMENT (INTERJECTION):"
+                            android:textColor="@color/accent_cyan"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="+14% Armor Buff"
+                            android:textColor="@color/accent_green"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/etUserReinforcement"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minLines="1"
+                        android:maxLines="3"
+                        android:layout_marginTop="6dp"
+                        android:hint="Supply a mid-battle defense or counter-measure (e.g. 'We enforce cryptographic invariants and offline ring buffers')..."
+                        android:textColorHint="#64748B"
+                        android:textColor="@color/text_primary"
+                        android:textSize="12sp"
+                        android:background="@drawable/bg_input_field"
+                        android:padding="10dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- IGNITE BATTLE BUTTON -->
+            <Button
+                android:id="@+id/btnIgniteArena"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="⚔️ IGNITE RAVANA ARENA BATTLE"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/bg_button_gradient"
+                android:layout_marginBottom="16dp" />
+
+            <!-- BATTLE RUNNING INDICATOR & BATTLE MOTION GRAPHICS -->
+            <LinearLayout
+                android:id="@+id/layoutBattleLoading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:visibility="gone"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/tvBattleLoadingStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="⚔️ ADVERSARIAL COUNCIL CLASHING..."
+                    android:textColor="@color/accent_rose"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <!-- MOTION GRAPHICS COMBAT ARENA CANVAS -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="4dp"
+                    app:cardBackgroundColor="#0B0F19">
+
+                    <com.offlineai.app.ui.arena.RavanaArenaBattleView
+                        android:id="@+id/arenaBattleVisualizer"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </androidx.cardview.widget.CardView>
+
+                <ProgressBar
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_marginTop="10dp"
+                    android:indeterminateTint="@color/accent_cyan" />
+            </LinearLayout>
+
+            <!-- BATTLE RESULTS CONTAINER -->
+            <LinearLayout
+                android:id="@+id/layoutBattleResults"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!-- 1. FINAL SURVIVAL VERDICT CARD -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardVerdict"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="6dp"
+                    app:cardBackgroundColor="@color/card_dark">
+
+                    <LinearLayout
+                        android:id="@+id/layoutVerdictHeader"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <!-- ARENA MOTION GRAPHICS POST-BATTLE REPLAY DISPLAY -->
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="140dp"
+                            android:layout_marginBottom="14dp"
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="2dp"
+                            app:cardBackgroundColor="#0B0F19">
+
+                            <com.offlineai.app.ui.arena.RavanaArenaBattleView
+                                android:id="@+id/arenaBattleReplayVisualizer"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" />
+                        </androidx.cardview.widget.CardView>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:id="@+id/tvVerdictEmoji"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="🏆"
+                                android:textSize="28sp" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="12dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tvVerdictTitle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="SURVIVED"
+                                    android:textColor="#10B981"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tvSurvivalScore"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Survival Probability: 78%"
+                                    android:textColor="@color/text_primary"
+                                    android:textSize="13sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!-- Survival Progress Bar -->
+                        <ProgressBar
+                            android:id="@+id/pbSurvivalScore"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="10dp"
+                            android:layout_marginTop="12dp"
+                            android:progress="78"
+                            android:max="100"
+                            android:progressTint="#10B981" />
+
+                        <!-- Armor & Attack Penetration Gauges -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="8dp">
+
+                            <TextView
+                                android:id="@+id/tvArmorRatingBadge"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="🛡️ Armor Rating: 88%"
+                                android:textColor="@color/accent_green"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvAttackPenetrationBadge"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="⚡ Penetration: 42%"
+                                android:textColor="@color/accent_rose"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvVerdictSummary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="After undergoing adversarial bombardment across 4 AI bots, your thesis demonstrated superior structural resilience."
+                            android:textColor="@color/text_secondary"
+                            android:textSize="12sp"
+                            android:lineSpacingExtra="2dp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- 2. ROUND-BY-ROUND CLASH LOGS -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ROUND-BY-ROUND ARENA CLASH:"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:id="@+id/layoutRoundsContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="14dp" />
+
+                <!-- 3. FATAL FLAWS EXPOSED -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="2dp"
+                    app:cardBackgroundColor="@color/card_dark">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="14dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🔴 FATAL FLAWS UNMASKED BY ATTACKERS:"
+                            android:textColor="@color/accent_rose"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="6dp" />
+
+                        <TextView
+                            android:id="@+id/tvFatalFlawsContent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="• Flaw 1\n• Flaw 2"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp"
+                            android:lineSpacingExtra="3dp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- 4. SURVIVING PILLARS -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="2dp"
+                    app:cardBackgroundColor="@color/card_dark">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="14dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🟢 SURVIVING PILLARS THAT HELD GROUND:"
+                            android:textColor="@color/accent_green"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="6dp" />
+
+                        <TextView
+                            android:id="@+id/tvSurvivingPillarsContent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="• Pillar 1\n• Pillar 2"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp"
+                            android:lineSpacingExtra="3dp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- 5. FORTIFICATION DIRECTIVES -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="2dp"
+                    app:cardBackgroundColor="@color/card_dark">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="14dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🛡️ FORTIFICATION ROADMAP (MAKE IT INVULNERABLE):"
+                            android:textColor="@color/accent_cyan"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="6dp" />
+
+                        <TextView
+                            android:id="@+id/tvFortificationContent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="• Directive 1\n• Directive 2"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp"
+                            android:lineSpacingExtra="3dp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Action Buttons: Re-fight, Copy & Scorecard -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <Button
+                        android:id="@+id/btnReFight"
+                        android:layout_width="0dp"
+                        android:layout_height="42dp"
+                        android:layout_weight="1"
+                        android:text="🔄 Re-Fight Debate"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"
+                        android:background="@drawable/bg_chip"
+                        android:layout_marginEnd="6dp" />
+
+                    <Button
+                        android:id="@+id/btnCopyVerdict"
+                        android:layout_width="0dp"
+                        android:layout_height="42dp"
+                        android:layout_weight="1"
+                        android:text="📋 Copy Verdict"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"
+                        android:background="@drawable/bg_chip"
+                        android:layout_marginStart="6dp" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnExportScorecard"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:text="📤 Export Full Battle Scorecard"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/accent_cyan"
+                    android:background="@drawable/bg_chip"
+                    android:layout_marginBottom="16dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

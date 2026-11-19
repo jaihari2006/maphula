@@ -1,0 +1,1503 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/surface_dark">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Drag Handle -->
+        <View
+            android:layout_width="40dp"
+            android:layout_height="4dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/bg_chip"
+            android:backgroundTint="@color/text_muted" />
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⚙️"
+                android:textSize="22sp" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvSettingsTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Settings &amp; Personalization"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvSettingsSubtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Configure themes, lighting modes, and on-device intelligence"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ================= SECTION 1: LUMINANCE LIGHTING ================= -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="LUMINANCE LIGHTING"
+            android:textColor="@color/secondary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <!-- 1. Dark Mode Pill -->
+            <LinearLayout
+                android:id="@+id/btnSettingsModeDark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/bg_chip"
+                android:paddingVertical="10dp"
+                android:paddingHorizontal="4dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🌙"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tvSettingsModeDarkTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Dark"
+                    android:textColor="@color/text_primary"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvSettingsModeDarkInd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="✓ Active"
+                    android:textColor="@color/accent_green"
+                    android:textSize="10sp"
+                    android:visibility="visible" />
+            </LinearLayout>
+
+            <!-- 2. Semi-Dark Mode Pill -->
+            <LinearLayout
+                android:id="@+id/btnSettingsModeSemiDark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="3dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/bg_chip"
+                android:paddingVertical="10dp"
+                android:paddingHorizontal="4dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🌘"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tvSettingsModeSemiDarkTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Semi-Dark"
+                    android:textColor="@color/text_primary"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvSettingsModeSemiDarkInd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="✓ Active"
+                    android:textColor="@color/accent_green"
+                    android:textSize="10sp"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <!-- 3. Light Mode Pill -->
+            <LinearLayout
+                android:id="@+id/btnSettingsModeLight"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/bg_chip"
+                android:paddingVertical="10dp"
+                android:paddingHorizontal="4dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="☀️"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tvSettingsModeLightTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Light"
+                    android:textColor="@color/text_primary"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvSettingsModeLightInd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="✓ Active"
+                    android:textColor="@color/accent_green"
+                    android:textSize="10sp"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ================= SECTION 2: AESTHETIC FINISH ================= -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="AESTHETIC FINISH STYLE"
+            android:textColor="@color/secondary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08" />
+
+        <!-- 0. Apple iOS Cupertino (iPhone) Option -->
+        <LinearLayout
+            android:id="@+id/cardSettingsIos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card"
+            android:padding="12dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🍎"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Apple Liquid Glass (iOS 18)"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Liquid glass refraction, Dynamic Island, iMessage fluid bubbles &amp; gesture dock"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvSettingsCheckIos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✓ Active"
+                    android:textColor="@color/ios_blue"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 1. Matte Finish Option -->
+        <LinearLayout
+            android:id="@+id/cardSettingsMatte"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card"
+            android:padding="12dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🖤"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Matte Finish"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Velvety low-sheen finish &amp; soft satin micro-borders"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvSettingsCheckMatte"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✓ Active"
+                    android:textColor="@color/matte_accent"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:visibility="visible" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 2. Solid Color Option -->
+        <LinearLayout
+            android:id="@+id/cardSettingsSolid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card"
+            android:padding="12dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⬛"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Solid Color"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Bold flat color blocking &amp; sharp 2dp boundaries"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvSettingsCheckSolid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✓ Active"
+                    android:textColor="@color/solid_accent"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 3. Glassy Option -->
+        <LinearLayout
+            android:id="@+id/cardSettingsGlassy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card"
+            android:padding="12dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="💎"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Glassy"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Translucent frosted acrylic &amp; specular neon cyan glow"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvSettingsCheckGlassy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✓ Active"
+                    android:textColor="@color/glassy_accent"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ================= SECTION 3: BRIGHT SOLID & MATTE COLOURS ================= -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="BRIGHT SOLID &amp; MATTE COLOURS"
+            android:textColor="@color/secondary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:scrollbars="none"
+            android:overScrollMode="never">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- 1. Cyber Yellow -->
+                <LinearLayout
+                    android:id="@+id/btnSettingsPaletteBrightYellow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/bg_chip"
+                    android:paddingVertical="8dp"
+                    android:paddingHorizontal="10dp"
+                    android:layout_marginEnd="6dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/bg_chip"
+                        android:backgroundTint="#FFD600" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="⚡ Yellow"
+                        android:textColor="@color/text_primary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvSettingsPaletteBrightYellowInd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="✓ Active"
+                        android:textColor="@color/accent_green"
+                        android:textSize="9sp"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <!-- 2. Electric Cyan -->
+                <LinearLayout
+                    android:id="@+id/btnSettingsPaletteBrightCyan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/bg_chip"
+                    android:paddingVertical="8dp"
+                    android:paddingHorizontal="10dp"
+                    android:layout_marginEnd="6dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/bg_chip"
+                        android:backgroundTint="#00E5FF" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="🐬 Cyan"
+                        android:textColor="@color/text_primary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvSettingsPaletteBrightCyanInd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="✓ Active"
+                        android:textColor="@color/accent_green"
+                        android:textSize="9sp"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <!-- 3. Hot Magenta -->
+                <LinearLayout
+                    android:id="@+id/btnSettingsPaletteBrightMagenta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/bg_chip"
+                    android:paddingVertical="8dp"
+                    android:paddingHorizontal="10dp"
+                    android:layout_marginEnd="6dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/bg_chip"
+                        android:backgroundTint="#FF007F" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="🌺 Magenta"
+                        android:textColor="@color/text_primary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvSettingsPaletteBrightMagentaInd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="✓ Active"
+                        android:textColor="@color/accent_green"
+                        android:textSize="9sp"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <!-- 4. Radiant Lime -->
+                <LinearLayout
+                    android:id="@+id/btnSettingsPaletteBrightLime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/bg_chip"
+                    android:paddingVertical="8dp"
+                    android:paddingHorizontal="10dp"
+                    android:layout_marginEnd="6dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/bg_chip"
+                        android:backgroundTint="#00E676" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="🍏 Lime"
+                        android:textColor="@color/text_primary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvSettingsPaletteBrightLimeInd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="✓ Active"
+                        android:textColor="@color/accent_green"
+                        android:textSize="9sp"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <!-- 5. Blazing Orange -->
+                <LinearLayout
+                    android:id="@+id/btnSettingsPaletteBrightOrange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/bg_chip"
+                    android:paddingVertical="8dp"
+                    android:paddingHorizontal="10dp"
+                    android:layout_marginEnd="6dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/bg_chip"
+                        android:backgroundTint="#FF6D00" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="🔥 Orange"
+                        android:textColor="@color/text_primary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvSettingsPaletteBrightOrangeInd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="✓ Active"
+                        android:textColor="@color/accent_green"
+                        android:textSize="9sp"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <!-- 6. Electric Blue -->
+                <LinearLayout
+                    android:id="@+id/btnSettingsPaletteBrightBlue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/bg_chip"
+                    android:paddingVertical="8dp"
+                    android:paddingHorizontal="10dp"
+                    android:layout_marginEnd="6dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/bg_chip"
+                        android:backgroundTint="#0066FF" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="🔷 Blue"
+                        android:textColor="@color/text_primary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvSettingsPaletteBrightBlueInd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="✓ Active"
+                        android:textColor="@color/accent_green"
+                        android:textSize="9sp"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <!-- 7. Ultra Violet -->
+                <LinearLayout
+                    android:id="@+id/btnSettingsPaletteBrightViolet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/bg_chip"
+                    android:paddingVertical="8dp"
+                    android:paddingHorizontal="10dp"
+                    android:layout_marginEnd="6dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/bg_chip"
+                        android:backgroundTint="#A855F7" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="💜 Violet"
+                        android:textColor="@color/text_primary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvSettingsPaletteBrightVioletInd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="✓ Active"
+                        android:textColor="@color/accent_green"
+                        android:textSize="9sp"
+                        android:visibility="gone" />
+                </LinearLayout>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- ================= SECTION 4: TRADITIONAL DEITY PALETTES ================= -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="CLASSIC HERITAGE PALETTES"
+            android:textColor="@color/secondary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:scrollbars="none"
+            android:overScrollMode="never">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- 1. Cosmic Violet -->
+                <LinearLayout
+                    android:id="@+id/btnSettingsPaletteViolet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/bg_chip"
+                    android:paddingVertical="8dp"
+                    android:paddingHorizontal="10dp"
+                    android:layout_marginEnd="6dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/bg_chip"
+                        android:backgroundTint="#7C3AED" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="🦚 Violet"
+                        android:textColor="@color/text_primary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvSettingsPaletteVioletInd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="✓ Active"
+                        android:textColor="@color/accent_green"
+                        android:textSize="9sp"
+                        android:visibility="visible" />
+                </LinearLayout>
+
+                <!-- 2. Kailash Cyan -->
+                <LinearLayout
+                    android:id="@+id/btnSettingsPaletteCyan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/bg_chip"
+                    android:paddingVertical="8dp"
+                    android:paddingHorizontal="10dp"
+                    android:layout_marginEnd="6dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/bg_chip"
+                        android:backgroundTint="#06B6D4" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="🔱 Cyan"
+                        android:textColor="@color/text_primary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvSettingsPaletteCyanInd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="✓ Active"
+                        android:textColor="@color/accent_green"
+                        android:textSize="9sp"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <!-- 3. Vedic Saffron -->
+                <LinearLayout
+                    android:id="@+id/btnSettingsPaletteAmber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/bg_chip"
+                    android:paddingVertical="8dp"
+                    android:paddingHorizontal="10dp"
+                    android:layout_marginEnd="6dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/bg_chip"
+                        android:backgroundTint="#F59E0B" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="🪷 Saffron"
+                        android:textColor="@color/text_primary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvSettingsPaletteAmberInd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="✓ Active"
+                        android:textColor="@color/accent_green"
+                        android:textSize="9sp"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <!-- 4. Lotus Rose -->
+                <LinearLayout
+                    android:id="@+id/btnSettingsPaletteRose"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/bg_chip"
+                    android:paddingVertical="8dp"
+                    android:paddingHorizontal="10dp"
+                    android:layout_marginEnd="6dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/bg_chip"
+                        android:backgroundTint="#DB2777" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="🌸 Rose"
+                        android:textColor="@color/text_primary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvSettingsPaletteRoseInd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="✓ Active"
+                        android:textColor="@color/accent_green"
+                        android:textSize="9sp"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <!-- 5. Harmony Emerald -->
+                <LinearLayout
+                    android:id="@+id/btnSettingsPaletteEmerald"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/bg_chip"
+                    android:paddingVertical="8dp"
+                    android:paddingHorizontal="10dp"
+                    android:layout_marginEnd="6dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/bg_chip"
+                        android:backgroundTint="#059669" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="🏔️ Emerald"
+                        android:textColor="@color/text_primary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvSettingsPaletteEmeraldInd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="✓ Active"
+                        android:textColor="@color/accent_green"
+                        android:textSize="9sp"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <!-- 6. Sacred Ruby -->
+                <LinearLayout
+                    android:id="@+id/btnSettingsPaletteRuby"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/bg_chip"
+                    android:paddingVertical="8dp"
+                    android:paddingHorizontal="10dp"
+                    android:layout_marginEnd="6dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/bg_chip"
+                        android:backgroundTint="#E11D48" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="⚡ Ruby"
+                        android:textColor="@color/text_primary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvSettingsPaletteRubyInd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="✓ Active"
+                        android:textColor="@color/accent_green"
+                        android:textSize="9sp"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <!-- 7. Solar Gold -->
+                <LinearLayout
+                    android:id="@+id/btnSettingsPaletteGold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/bg_chip"
+                    android:paddingVertical="8dp"
+                    android:paddingHorizontal="10dp"
+                    android:layout_marginEnd="6dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/bg_chip"
+                        android:backgroundTint="#D97706" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="🦁 Gold"
+                        android:textColor="@color/text_primary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvSettingsPaletteGoldInd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="✓ Active"
+                        android:textColor="@color/accent_green"
+                        android:textSize="9sp"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <!-- 8. Royal Azure -->
+                <LinearLayout
+                    android:id="@+id/btnSettingsPaletteAzure"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/bg_chip"
+                    android:paddingVertical="8dp"
+                    android:paddingHorizontal="10dp"
+                    android:layout_marginEnd="6dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/bg_chip"
+                        android:backgroundTint="#2563EB" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="🛡️ Azure"
+                        android:textColor="@color/text_primary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvSettingsPaletteAzureInd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="✓ Active"
+                        android:textColor="@color/accent_green"
+                        android:textSize="9sp"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <!-- 9. Shani Titanium -->
+                <LinearLayout
+                    android:id="@+id/btnSettingsPaletteTitanium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/bg_chip"
+                    android:paddingVertical="8dp"
+                    android:paddingHorizontal="10dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/bg_chip"
+                        android:backgroundTint="#64748B" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="⚖️ Titanium"
+                        android:textColor="@color/text_primary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvSettingsPaletteTitaniumInd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="✓ Active"
+                        android:textColor="@color/accent_green"
+                        android:textSize="9sp"
+                        android:visibility="gone" />
+                </LinearLayout>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- ================= LIVE PREVIEW CARD ================= -->
+        <LinearLayout
+            android:id="@+id/layoutSettingsLivePreview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card"
+            android:padding="14dp">
+
+            <TextView
+                android:id="@+id/tvPreviewHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Live Interface Preview"
+                android:textColor="@color/secondary"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <!-- User Bubble Preview -->
+            <LinearLayout
+                android:id="@+id/previewUserBubble"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_chat_user"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="6dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Can you explain this offline?"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- AI Bubble Preview -->
+            <LinearLayout
+                android:id="@+id/previewAiBubble"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_chat_ai"
+                android:padding="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Krishna • 100% On-Device"
+                    android:textColor="@color/secondary"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvPreviewAiText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="All neural inferences run locally on this phone."
+                    android:textColor="@color/text_primary"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ================= SECTION 3: DEFAULT AI PERSONA ================= -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="DEFAULT DEITY AI MODEL"
+            android:textColor="@color/secondary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:layout_marginTop="8dp">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroupSettingsPersona"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:singleSelection="true"
+                app:selectionRequired="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipSettingsKrishna"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🦚 Krishna"
+                    android:checked="true"
+                    android:textColor="@color/text_primary"
+                    app:chipBackgroundColor="@color/surface_variant_dark" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipSettingsShiva"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🔱 Shiva"
+                    android:textColor="@color/text_primary"
+                    app:chipBackgroundColor="@color/surface_variant_dark" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipSettingsBrahma"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🪷 Brahma"
+                    android:textColor="@color/text_primary"
+                    app:chipBackgroundColor="@color/surface_variant_dark" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipSettingsGanesha"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🐘 Ganesha"
+                    android:textColor="@color/text_primary"
+                    app:chipBackgroundColor="@color/surface_variant_dark" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipSettingsMuruga"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⚡ Muruga"
+                    android:textColor="@color/text_primary"
+                    app:chipBackgroundColor="@color/surface_variant_dark" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipSettingsHanuman"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🛡️ Hanuman"
+                    android:textColor="@color/text_primary"
+                    app:chipBackgroundColor="@color/surface_variant_dark" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipSettingsLakshmi"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🌸 Lakshmi"
+                    android:textColor="@color/text_primary"
+                    app:chipBackgroundColor="@color/surface_variant_dark" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipSettingsParvathi"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🏔️ Parvathi"
+                    android:textColor="@color/text_primary"
+                    app:chipBackgroundColor="@color/surface_variant_dark" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipSettingsNarasimha"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🦁 Narasimha"
+                    android:textColor="@color/text_primary"
+                    app:chipBackgroundColor="@color/surface_variant_dark" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipSettingsShani"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⚖️ Shani"
+                    android:textColor="@color/text_primary"
+                    app:chipBackgroundColor="@color/surface_variant_dark" />
+            </com.google.android.material.chip.ChipGroup>
+        </HorizontalScrollView>
+
+        <!-- ================= SECTION 4: SOUND & HAPTIC FEEDBACK ================= -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="AUDIO &amp; SOUND FEEDBACK"
+            android:textColor="@color/secondary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08" />
+
+        <LinearLayout
+            android:id="@+id/btnToggleSoundFeedback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_chip"
+            android:paddingHorizontal="14dp"
+            android:paddingVertical="10dp"
+            android:layout_marginTop="8dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔊"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tactile Sound Feedback"
+                    android:textColor="@color/text_primary"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:text="Procedural buttery clicks &amp; sacred chant audio"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvSoundFeedbackStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ON"
+                android:textColor="@color/accent_green"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- ================= SECTION 5: STORAGE & DATA MANAGEMENT ================= -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="OFFLINE STORAGE &amp; DATA MANAGEMENT"
+            android:textColor="@color/secondary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08" />
+
+        <TextView
+            android:id="@+id/tvSettingsStorageInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Memory: 100% local persistent vector index"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSettingsOpenDataManager"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="10dp"
+            android:text="📦 Open Data &amp; Export Manager"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/accent_purple"
+            app:cornerRadius="10dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSettingsFetchKnowledge"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:text="🌐 Sync Web"
+                android:textSize="12sp"
+                app:backgroundTint="@color/secondary"
+                app:cornerRadius="10dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSettingsClearCache"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                android:text="🗑️ Reset Cache"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                app:strokeColor="@color/card_stroke"
+                app:cornerRadius="10dp" />
+        </LinearLayout>
+
+        <!-- ================= SECTION 5: HOME SCREEN WIDGET ================= -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="HOME SCREEN WIDGET"
+            android:textColor="@color/secondary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Place the Mapula AI widget on your home screen for 1-tap Chat, Voice dictation, Creative Studio &amp; live prompt ideas."
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSettingsPinWidget"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="10dp"
+            android:text="📌 Add Widget to Home Screen"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:backgroundTint="#0F766E"
+            app:cornerRadius="10dp" />
+
+        <!-- ================= SECTION 6: PRIVACY & SYSTEM ================= -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="PRIVACY &amp; SPECIFICATIONS"
+            android:textColor="@color/secondary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08" />
+
+        <TextView
+            android:id="@+id/tvSettingsPrivacyNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="🛡️ Zero cloud LLM dependencies. No analytics, tracking tokens, or private conversational logs ever leave this phone. Built for complete local autonomy."
+            android:textColor="@color/text_muted"
+            android:textSize="11sp"
+            android:lineSpacingExtra="2dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text="✨ App Created by Jaihari U S • Maphula v1.0.0"
+            android:textColor="@color/secondary"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</ScrollView>
